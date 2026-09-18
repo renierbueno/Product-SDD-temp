@@ -5,14 +5,20 @@ description: Usar cuando la pregunta es "¿deberíamos entrar en el vertical X?"
 
 # Evaluar una vertical nueva
 
-Objetivo: decidir si la empresa debería entrar en un vertical, y si sí, qué se construye una vez como capacidad configurable vs. qué es específico. Este es el ejercicio central del rol.
+Objetivo: decidir si la empresa debería entrar en un vertical, y si sí, qué se construye una vez como capacidad configurable vs. qué es específico. Este es el ejercicio central de esta función.
+
+## Cuándo usarla
+
+- Te preguntan "¿deberíamos entrar en el vertical X?".
+- Necesitas saber qué necesitaría un vertical nuevo para correr sobre la plataforma existente.
+- Hay que decidir qué se construye una vez como capacidad configurable vs. qué es específico del vertical.
 
 ## Preguntas de arranque (hazlas antes de producir nada)
 
-1. ¿Quién es el operador de este vertical y cuál es su workflow diario?
-2. ¿Qué tipo de máquina o punto de servicio hay, y qué protocolo de pago usa (MDB, Executive, Validador, otro)?
+1. ¿Quién opera este vertical y cuál es su workflow diario?
+2. ¿Qué tipo de punto de servicio hay, y qué integración técnica requiere (API, hardware, protocolo propietario, otro)?
 3. ¿Qué bloquea hoy la entrada, un gap de producto o un tema comercial?
-4. ¿Cuál es el tamaño y la frecuencia de compra del vertical? (define si el modelo de cuota fija sin comisión aguanta)
+4. ¿Cuál es el tamaño y la frecuencia de compra del vertical? (define si el modelo de negocio actual aguanta)
 
 ## Paso 1 — Perfil del vertical
 
@@ -20,10 +26,10 @@ Rellena:
 
 ```
 Vertical: [nombre]
-Operador tipo: [quién opera las máquinas]
+Operador tipo: [quién opera el punto de servicio]
 Consumidor tipo: [quién paga]
 Ticket medio estimado: [€] · Frecuencia: [alta/media/baja]
-Protocolo de pago de la máquina: [MDB / Executive / Validador / desconocido]
+Integración técnica requerida: [API / hardware propietario / protocolo específico / desconocido]
 Por qué ahora: [qué lo hace relevante]
 ```
 
@@ -31,14 +37,14 @@ Por qué ahora: [qué lo hace relevante]
 
 Para cada necesidad del vertical, clasifícala:
 
-| Necesidad del vertical | ¿Ya existe en Space/Spot? | ¿Configurable o build específico? | Justificación |
+| Necesidad del vertical | ¿Ya existe en la plataforma? | ¿Configurable o build específico? | Justificación |
 |---|---|---|---|
 | Cobro sin efectivo | Sí | Configurable | Ya es core |
-| [ej: sesión por tiempo/count-up] | Parcial | Configurable | Ya existe en lavandería |
-| [ej: control de acceso físico] | No | Evaluar build | Nuevo formato |
+| [ej: sesión por tiempo/uso] | Parcial | Configurable | Ya existe en otro vertical |
+| [ej: control de acceso] | No | Evaluar build | Nuevo formato |
 | [ej: reserva previa] | No | Evaluar build | Nuevo formato |
 
-Regla: si algo se parece a una capacidad que ya existe para otro vertical (ej. count-up de lavandería ≈ over-stay de EV), es configurable, no build nuevo. Solo se justifica un build específico cuando la necesidad no tiene análogo en la plataforma.
+Regla: si algo se parece a una capacidad que ya existe para otro vertical, es configurable, no build nuevo. Solo se justifica un build específico cuando la necesidad no tiene análogo en la plataforma.
 
 ## Paso 2b — ¿Construir o integrar?
 
@@ -52,9 +58,19 @@ Criterio de decisión: [ingresos / velocidad / riesgo de mantenimiento]
 Qué se construiría primero: [la capacidad mínima]
 Qué queda fuera de esta fase: [explícito]
 Mayor riesgo: [el que mataría la entrada]
-Pregunta abierta para Comercial / PM de Space: [una]
+Pregunta abierta para Comercial / PM de la plataforma: [una]
 ```
 
 ## Salida esperada
 
-Una tabla plataforma-vs-específico llena + tres frases de recomendación. No más. Si hay tiempo, encadena con la skill `write-spec` para la capacidad que se construiría primero.
+Una tabla plataforma-vs-específico llena + tres frases de recomendación. No más.
+
+## Cómo se conecta con el resto
+
+Si el build-vs-integrate del paso 2b se vuelve el eje de la decisión, sigue con `business-case`. Para especificar la capacidad que se construiría primero, sigue con `write-spec`.
+
+## No está completo si...
+
+- No está completo si alguna fila de la matriz plataforma-vs-específico no tiene justificación.
+- No está completo si la recomendación no es ENTRAR / NO ENTRAR / ENTRAR EN FASE 2 con un criterio explícito.
+- No está completo si un build específico no pasó por la pregunta de construir vs. integrar (paso 2b).

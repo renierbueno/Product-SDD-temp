@@ -5,9 +5,15 @@ description: Usar para argumentar una decisión de producto en términos de nego
 
 # Argumentar el business case
 
-Objetivo: convertir una decisión de producto en un argumento de negocio que alguien de Comercial o Dirección pueda entender y rebatir. El rol pide "make the internal case" y "partner with Commercial on which gaps block entry". Esto es esa pieza.
+Objetivo: convertir una decisión de producto en un argumento de negocio que alguien de Comercial o Dirección pueda entender y rebatir, y detectar qué gaps bloquean la entrada a un vertical o modelo nuevo, no solo defender la decisión ya tomada.
 
-Importante: si la empresa está abriendo modelos de negocio nuevos, NO asumas que todo tiene que caber en el modelo actual (`docs/doc_company_context.md`). El punto del rol es justo lo contrario: encontrar el mejor modelo para cada caso. El modelo actual es la base, no una restricción sobre lo nuevo.
+Importante: si la empresa está abriendo modelos de negocio nuevos, NO asumas que todo tiene que caber en el modelo actual (`docs/doc_company_context.md`). El punto es justo lo contrario: encontrar el mejor modelo para cada caso. El modelo actual es la base, no una restricción sobre lo nuevo.
+
+## Cuándo usarla
+
+- Ya hay una decisión de producto tomada y hay que defenderla ante Comercial o Dirección.
+- Hace falta decidir build vs. integrate y justificarlo en términos de negocio.
+- Alguien pregunta "¿cuánto podría mover esto en ingresos?" y hace falta una respuesta con supuestos explícitos, no una cifra suelta.
 
 ## El caso, en cinco piezas
 
@@ -31,8 +37,8 @@ Por qué ahora:
 ## Las preguntas que Comercial te va a hacer (anticípalas)
 
 - ¿Cuánto podría mover esto en ingresos y en qué plazo? (aunque sea un rango con supuestos)
-- ¿Qué operadores/cuentas se desbloquean con esto?
-- ¿El operador lo va a querer, o se lo tenemos que empujar?
+- ¿Qué clientes/cuentas se desbloquean con esto?
+- ¿El cliente/socio lo va a querer, o se lo tenemos que empujar?
 - ¿Qué pasa con el margen si el modelo lleva coste variable nuevo?
 - ¿Esto nos ata a un proveedor externo? (build vs. integrate)
 
@@ -40,7 +46,7 @@ Ten una respuesta, aunque sea con supuestos marcados, para cada una.
 
 ## Build vs. integrate (decisión de negocio, no solo técnica)
 
-Cuando el caso implica una capacidad nueva (motor de campañas, catálogo, settlement, reservas), la pregunta que de verdad decide es: **¿esto toca el activo exclusivo de la empresa (su red física, su relación con el operador/cliente, sus datos propios), o es infraestructura genérica que un tercero ya resuelve mejor?**
+Cuando el caso implica una capacidad nueva (motor de campañas, catálogo, settlement, reservas), la pregunta que de verdad decide es: **¿esto toca el activo exclusivo de la empresa (su red, su relación con el cliente, sus datos propios), o es infraestructura genérica que un tercero ya resuelve mejor?**
 
 ```
 ¿Toca el activo exclusivo de la empresa?: [sí / no]
@@ -54,8 +60,18 @@ La regla honesta: si toca el activo exclusivo, constrúyelo; si es genérico, in
 
 ## Con datos pequeños o supuestos
 
-Presenta los números como escenarios con supuestos visibles, no como proyecciones firmes. "Si asumimos X operadores y Y de ticket, esto ronda Z" es honesto; una cifra sola parece inventada. Enmarca los hallazgos como indicadores direccionales.
+Presenta los números como escenarios con supuestos visibles, no como proyecciones firmes. "Si asumimos X cuentas y Y de ticket, esto ronda Z" es honesto; una cifra sola parece inventada. Enmarca los hallazgos como indicadores direccionales.
 
 ## Salida esperada
 
 Las cinco piezas del caso + la decisión build-vs-integrate si aplica. Corto y defendible. La prueba de un buen caso: alguien de Comercial podría rebatirlo con datos, no con "no me convence".
+
+## Cómo se conecta con el resto
+
+Recibe de `evaluate-vertical` (paso 2b) o `design-monetization-model` cuando el build-vs-integrate es el eje de la decisión. Sigue con `prioritize-roadmap` si hay más opciones sobre la mesa, o directo con `write-spec` si ya está decidido.
+
+## No está completo si...
+
+- No está completo si falta alguna de las cinco piezas del caso.
+- No está completo si los números no llevan los supuestos visibles.
+- No está completo si implica una capacidad nueva y no se respondió build vs. integrate.

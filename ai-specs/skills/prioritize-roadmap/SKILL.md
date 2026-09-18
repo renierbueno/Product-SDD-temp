@@ -5,7 +5,13 @@ description: Usar cuando hay varias opciones sobre la mesa (varias verticales, v
 
 # Priorizar el roadmap de expansión
 
-Objetivo: ordenar opciones con un criterio comunicado, no con intuición. El rol pide priorizar "con criterios explícitos y comunicados", así que el criterio es tan importante como el resultado.
+Objetivo: ordenar opciones con un criterio comunicado, no con intuición. El criterio es tan importante como el resultado.
+
+## Cuándo usarla
+
+- Hay varias verticales, formatos o features sobre la mesa y hay que decidir el orden.
+- Alguien pide "prioriza esto" sin dar un criterio, y hace falta declarar uno antes de puntuar.
+- Hace falta una recomendación cerrada, no un debate abierto.
 
 ## Paso 0 — Fija el criterio antes de puntuar
 
@@ -25,12 +31,12 @@ Di en voz alta el supuesto de cada celda. Con poca información, marca la Confid
 
 ## Variante: si el criterio es riesgo de mantenimiento
 
-Cuando el criterio dominante es no romper la plataforma (muy alineado con el rol), sustituye Impact por "reutilización de plataforma":
+Cuando el criterio dominante es no romper la plataforma, sustituye Impact por "reutilización de plataforma":
 
-| Opción | % reutiliza Space/Spot | Builds específicos que exige | Deuda de mantenimiento | Prioridad |
+| Opción | % reutiliza la plataforma | Builds específicos que exige | Deuda de mantenimiento | Prioridad |
 |---|---|---|---|---|
 
-Lo que más reutiliza y menos builds únicos exige sube, aunque su impacto comercial no sea el mayor. Esto demuestra que entiendes el mandato de "sin mosaico de builds inmantenibles".
+Lo que más reutiliza y menos builds únicos exige sube, aunque su impacto comercial no sea el mayor. Esto respeta el principio de no crear un mosaico de builds inmantenibles.
 
 ## Paso 2 — Recomendación
 
@@ -44,3 +50,13 @@ Supuesto que más movería este orden si cambia: [uno].
 ## Salida esperada
 
 Tabla + tres líneas de recomendación cerrada. Nunca dejes la decisión abierta "para discutir"; da tu recomendación y di qué la cambiaría.
+
+## Cómo se conecta con el resto
+
+Recibe de `business-case` o `evaluate-vertical` cuando ya hay varias opciones evaluadas por separado. Sigue con `write-spec` para la opción que queda primero.
+
+## No está completo si...
+
+- No está completo si el criterio no se declaró antes de puntuar.
+- No está completo si alguna celda de Confidence está inventada en vez de marcada baja por falta de información.
+- No está completo si la recomendación queda abierta "para discutir" en vez de cerrada.

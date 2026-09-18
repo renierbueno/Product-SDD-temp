@@ -22,6 +22,16 @@ Principios que gobiernan cualquier trabajo en este repo. El copiloto los respeta
 - **El PM valida antes de entregar.** Cuando se puede, se prototipa con IA para no hacer perder tiempo a ingeniería en algo con un problema obvio de UX o alcance.
 - **Un número por hipótesis.** Cada spec dice qué métrica confirmaría que funcionó.
 
+## Cómo se cambia el harness
+
+Aplica a cualquier edición de `CLAUDE.md`, `README.md`, `ai-specs/skills/*/SKILL.md`, `ai-specs/.commands/*.md`, o `docs/`, sin importar qué copiloto o sesión la haga.
+
+- **Verifica integración antes de tocar nada.** Antes de editar una skill, un comando, o un doc, busca (grep) cada lugar donde el concepto que vas a cambiar ya se menciona — la tabla de rutas de `CLAUDE.md`, el diagrama de `README.md`, otros `SKILL.md`. Un cambio que rompe una referencia en otro archivo no está terminado, está a medias.
+- **Toda skill/comando nuevo se declara en tres sitios, no en uno.** El archivo mismo (`ai-specs/skills/<nombre>/SKILL.md` + `ai-specs/.commands/<nombre>.md`), la tabla de rutas de `CLAUDE.md`, y el diagrama de estructura de `README.md`. Falta cualquiera de los tres y la skill existe pero es invisible para la próxima sesión.
+- **Prueba antes y después, no solo después.** Antes de cambiar: comprueba qué es cierto hoy (cuenta cuántas skills/docs hay de verdad, qué referencias cruzadas existen). Después: repite la misma comprobación y verifica que coincide — ningún conteo ("cuatro docs", "once skills") puede quedar desincronizado con la realidad del repo.
+- **Nada se asume, se comprueba.** Si la duda es sobre una práctica externa (¿cuál es el orden estándar de X?), eso es `live-research`, no una suposición razonada — igual que con cualquier otro dato de mercado.
+- **Definición de "hecho" para un cambio al harness:** un copiloto en una sesión nueva, sin memoria de esta, tiene que poder seguir el rastro completo desde `CLAUDE.md` hasta el archivo final sin un solo enlace roto.
+
 ## Tono de escritura
 
 Simple, directo, humano. Sin buzzwords, sin lenguaje que suene a IA. Sin guiones largos. Cuando hay tres factores, se dice "tres", no "varios".
