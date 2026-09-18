@@ -1,29 +1,29 @@
-# Investigación de mercado (contexto vivo)
+# Market research (live context)
 
 LIVE, dated context — refreshed via the `live-research` skill before a session, or
 in-session if a data point is missing. A confirmed/killed assumption updates verbally in
 session; this document doesn't get rewritten mid-session. Every entry should carry a date
 and, where possible, a source.
 
-## Tamaño y crecimiento del vertical
+## Vertical size and growth
 
-[COMPLETAR o dejar para `live-research`.]
+[FILL IN or leave for `live-research`.]
 
-## Comparables de monetización
+## Monetization comparables
 
-[COMPLETAR o dejar para `live-research`. Si no aplica, decilo explícitamente — no lo
-dejes en blanco sin explicación.]
+[FILL IN or leave for `live-research`. If it doesn't apply, say so explicitly — don't
+leave it blank with no explanation.]
 
-## Regulación relevante
+## Relevant regulation
 
-[COMPLETAR o dejar para `live-research`.]
+[FILL IN or leave for `live-research`.]
 
-## Benchmarks de precio
+## Price benchmarks
 
-[COMPLETAR o dejar para `live-research`.]
+[FILL IN or leave for `live-research`.]
 
-## Comportamiento de usuario en este tipo de contexto
+## User behavior in this type of context
 
-[COMPLETAR o dejar para `live-research`. Marcá cada hallazgo `[CONFIRMADO fecha, fuente]`
-o `[SUPUESTO — validar]`, nunca lo mezcles con datos internos del proyecto — esos van en
-`doc_company_context.md` o `doc_open_questions.md`, no acá.]
+[FILL IN or leave for `live-research`. Tag every finding `[CONFIRMED date, source]` or
+`[ASSUMPTION — validate]`, never mix it with internal project data — that goes in
+`doc_company_context.md` or `doc_open_questions.md`, not here.]

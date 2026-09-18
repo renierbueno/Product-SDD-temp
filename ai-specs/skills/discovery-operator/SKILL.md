@@ -1,63 +1,63 @@
 ---
 name: discovery-operator
-description: Usar al inicio de un problema abierto, cuando hay que entender qué hace un negocio, un vertical o un touchpoint antes de proponer nada. Es el paso cero del proceso. Produce el mapa del problema real, no una lista de features pedidas.
+description: Use at the start of an open problem, when you need to understand what a business, a vertical, or a touchpoint does before proposing anything. It's step zero of the process. Produces the map of the real problem, not a list of requested features.
 ---
 
-# Discovery de operador
+# Operator discovery
 
-Objetivo: entender el negocio y el contexto real lo bastante para separar el problema real del problema aparente. Nadie te va a dar el problema bien planteado; tu trabajo es encontrarlo.
+Goal: understand the business and the real context well enough to separate the real problem from the apparent one. Nobody's going to hand you the problem well-framed; your job is to find it.
 
-## Cuándo usarla
+## When to use it
 
-- El problema llega abierto ("entiende qué hacemos y trae una propuesta").
-- Te dan un vertical o un touchpoint nuevo y no sabes por dónde entrar.
-- Alguien te pide una feature concreta y sospechas que no es el problema de fondo.
+- The problem arrives open-ended ("understand what we do and bring a proposal").
+- You're given a new vertical or touchpoint and don't know where to start.
+- Someone asks for a specific feature and you suspect it's not the underlying problem.
 
-## Las preguntas, en tres capas
+## The questions, in three layers
 
-No preguntes features. Pregunta por el negocio, el flujo y el contexto, en este orden:
+Don't ask about features. Ask about the business, the flow, and the context, in this order:
 
-**Capa 1 — El negocio**
-- ¿Cómo gana dinero hoy? ¿Cuál es su margen?
-- ¿Qué le quita el sueño: captar clientes, entregar el servicio, mantener la operación, cobrar?
-- ¿Quién es el cliente final y qué sabe de él hoy? (normalmente: menos de lo que cree)
+**Layer 1 — The business**
+- How does it make money today? What's its margin?
+- What keeps it up at night: acquiring customers, delivering the service, keeping operations running, getting paid?
+- Who's the end customer, and what does it actually know about them today? (usually: less than it thinks)
 
-**Capa 2 — El flujo real**
-- Recorre conmigo una interacción de principio a fin: ¿qué pasa antes, durante y después del momento central?
-- ¿Dónde se cae la gente? ¿Dónde pierde dinero el negocio?
-- ¿Cuánto dura la interacción? ¿Hay prisa o tiempo muerto? (esto define qué se puede hacer en ese punto)
+**Layer 2 — The real flow**
+- Walk me through one interaction start to finish: what happens before, during, and after the central moment?
+- Where do people drop off? Where does the business lose money?
+- How long does the interaction last? Is there time pressure or dead time? (this defines what's possible at that point)
 
-**Capa 3 — El contexto**
-- ¿Dónde y cómo ocurre esto? (un contexto con prisa no es lo mismo que uno con espera, ni uno con multitud lo mismo que uno individual)
-- ¿Qué cambia el contexto sobre lo que el cliente aceptaría o ignoraría?
+**Layer 3 — The context**
+- Where and how does this happen? (a rushed context isn't the same as one with waiting time, nor is a crowded one the same as an individual one)
+- What does the context change about what the customer would accept or ignore?
 
-## Separar dolor real de capricho
+## Separating real pain from whim
 
-Para cada cosa que te cuenten, pregúntate:
-- ¿Esto lo dijeron porque les duele, o porque se lo imaginan bonito?
-- ¿Hay evidencia de que ya intentaron resolverlo? (dolor real = ya intentaron algo)
-- ¿Cuánto les cuesta hoy no resolverlo? Si no lo saben, probablemente no es prioritario.
+For everything you're told, ask yourself:
+- Did they say this because it hurts, or because they imagine it'd be nice?
+- Is there evidence they already tried to solve it? (real pain = they already tried something)
+- What does it cost them today not to solve it? If they don't know, it's probably not a priority.
 
-Marca cada hallazgo: [DOLOR CONFIRMADO] / [SUPUESTO — validar] / [DESEO sin evidencia].
+Tag every finding: [CONFIRMED PAIN] / [ASSUMPTION — validate] / [WISH without evidence].
 
-## Salida esperada
+## Expected output
 
 ```
-Negocio: [quién es, cómo gana dinero]
-Flujo real: [antes → momento central → después, con el punto de dolor marcado]
-Contexto y qué implica: [dónde/cómo ocurre, prisa/tiempo, qué permite]
-Problema real (una frase): [el de fondo, no el que te pidieron]
-Lo que sé vs. lo que asumo: [lista corta, cada uno tagueado]
+Business: [who they are, how they make money]
+Real flow: [before → central moment → after, with the pain point marked]
+Context and what it implies: [where/how it happens, time pressure, what it allows]
+Real problem (one sentence): [the underlying one, not the one you were asked about]
+What I know vs. what I'm assuming: [short list, each one tagged]
 ```
 
-Una frase de problema bien encontrada vale más que diez features.
+One well-found problem sentence is worth more than ten features.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Si sales de discovery con el problema real y el contexto entendido, sigue con `design-monetization-model` (si el problema es de monetización de un touchpoint) o `evaluate-vertical` (si el problema es si entrar o no en un vertical).
+If you come out of discovery with the real problem and the context understood, follow with `design-monetization-model` (if the problem is about monetizing a touchpoint) or `evaluate-vertical` (if the problem is whether to enter a vertical or not).
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si no se separó negocio, flujo y contexto en las tres capas.
-- No está completo si algún hallazgo no quedó tagueado (DOLOR CONFIRMADO / SUPUESTO — validar / DESEO sin evidencia).
-- No está completo si el "problema real" resulta ser la misma feature que te pidieron al principio.
+- Not complete if business, flow, and context weren't separated into the three layers.
+- Not complete if any finding wasn't tagged (CONFIRMED PAIN / ASSUMPTION — validate / WISH without evidence).
+- Not complete if the "real problem" turns out to be the same feature you were asked about at the start.

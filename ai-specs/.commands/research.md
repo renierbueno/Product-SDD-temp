@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill live-research sobre un dato de mercado que falta
-argument-hint: [dato de mercado que falta y qué decisión bloquea]
+description: Invokes the live-research skill on a missing market data point
+argument-hint: [missing market data point and which decision it blocks]
 ---
 
 # /research
 
-Invoca la skill `live-research` (usa la tool Skill con skill: "live-research") sobre este dato:
+Invoke the `live-research` skill (use the Skill tool with skill: "live-research") on this data point:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/live-research/SKILL.md`: identifica la categoría (1-5), una pregunta concreta por búsqueda, prioriza fuente original, y entrega la salida esperada de esa skill, siempre marcada como señal direccional.
+Follow the full process in `ai-specs/skills/live-research/SKILL.md`: identify the category (1-5), one concrete question per search, prioritize the original source, and deliver that skill's expected output, always marked as a directional signal.

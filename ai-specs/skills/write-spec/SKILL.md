@@ -1,80 +1,80 @@
 ---
 name: write-spec
-description: Usar para producir el artefacto que se entrega a ingeniería. Convierte una decisión de producto en un spec ejecutable con criterios de aceptación en formato EARS y fuera de alcance explícito.
+description: Use to produce the artifact that gets handed off to engineering. Turns a product decision into an executable spec with acceptance criteria in EARS format and an explicit out-of-scope block.
 ---
 
-# Escribir el spec (spec-driven development)
+# Write the spec (spec-driven development)
 
-Objetivo: producir el artefacto que ingeniería puede tomar y ejecutar sin una reunión de aclaración. El PM es dueño de esto; ingeniería es dueña del plan y las tasks que salen de aquí.
+Goal: produce the artifact engineering can pick up and execute without a clarification meeting. The PM owns this; engineering owns the plan and the tasks that come out of it.
 
-**Esta skill corre dos veces, no una (reordenado 2026-09-17 tras auditar la práctica real de equipos AI-native).** Primera pasada: un borrador ligero, justo después de `prioritize-roadmap`, que origina el prototipo y (si aplica) la hipótesis que `validate-fast` rellena — no es la versión final, y no hace falta que lo sea todavía. Segunda pasada: después de `finalize-product-design`, se revisa y se cierra el mismo spec con lo que realmente quedó validado y finalizado, no con lo que se esperaba al principio. `/plan` toma esta segunda versión, no la primera.
+**This skill runs twice, not once (reordered 2026-09-17 after auditing the real practice of AI-native teams).** First pass: a light draft, right after `prioritize-roadmap`, that originates the prototype and (if applicable) the hypothesis `validate-fast` fills in — it's not the final version, and it doesn't need to be yet. Second pass: after `finalize-product-design`, the same spec gets reviewed and closed with what actually got validated and finalized, not what was expected at the start. `/plan` takes this second version, not the first.
 
-## Cuándo usarla
+## When to use it
 
-- **Primera pasada:** ya hay una decisión de producto tomada (de `design-monetization-model`, `evaluate-vertical` o `prioritize-roadmap`) y toca convertirla en algo que origine un prototipo y, si aplica, una hipótesis para `validate-fast`.
-- **Segunda pasada:** el flujo ya se validó, la identidad visual y la voz ya están fijadas (si el proyecto las necesitó), y `finalize-product-design` ya produjo el inventario completo — toca cerrar el spec con la verdad final antes de pasarlo a `/plan`.
-- Necesitas criterios de aceptación medibles, no una descripción en prosa.
-- Hace falta declarar explícitamente qué NO se construye en esta versión.
+- **First pass:** a product decision has already been made (from `design-monetization-model`, `evaluate-vertical`, or `prioritize-roadmap`) and it's time to turn it into something that originates a prototype and, if applicable, a hypothesis for `validate-fast`.
+- **Second pass:** the flow is already validated, the visual identity and voice are already locked (if the project needed them), and `finalize-product-design` already produced the complete inventory — time to close the spec with the final truth before handing it to `/plan`.
+- You need measurable acceptance criteria, not a prose description.
+- You need to explicitly state what does NOT get built in this version.
 
-## Plantilla
+## Template
 
 ```markdown
-# Spec: [nombre corto de la feature]
+# Spec: [short feature name]
 
-## Contexto
-[2-3 frases: qué problema resuelve y para quién. Sin solución embebida.]
+## Context
+[2-3 sentences: what problem it solves and for whom. No embedded solution.]
 
-## Historia de usuario
-Como [tipo de usuario concreto],
-quiero [acción],
-para [resultado medible].
+## User story
+As a [specific user type],
+I want [action],
+so that [measurable outcome].
 
-## Criterios de aceptación (EARS)
-- WHEN [evento] THE SYSTEM SHALL [comportamiento observable]
-- WHEN [evento] THE SYSTEM SHALL [comportamiento observable]
-- IF [condición de borde] THEN THE SYSTEM SHALL [comportamiento]
-- IF [caso de error] THEN THE SYSTEM SHALL [manejo del error]
-- WHILE [estado continuo] THE SYSTEM SHALL [comportamiento]
+## Acceptance criteria (EARS)
+- WHEN [event] THE SYSTEM SHALL [observable behavior]
+- WHEN [event] THE SYSTEM SHALL [observable behavior]
+- IF [edge condition] THEN THE SYSTEM SHALL [behavior]
+- IF [error case] THEN THE SYSTEM SHALL [error handling]
+- WHILE [ongoing state] THE SYSTEM SHALL [behavior]
 
-## Fuera de alcance (esta versión)
-- [cosa que NO se construye]
-- [cosa que NO se construye]
+## Out of scope (this version)
+- [thing that does NOT get built]
+- [thing that does NOT get built]
 
-## Dependencias / integraciones
-- [ej: requiere que el backoffice exponga X] · [ej: depende de un proveedor externo para Y]
-- ¿Esto se integra con algo externo que ya existe, o se construye en propio? [decide y justifica; si es una decisión de negocio grande, sácala a business-case]
+## Dependencies / integrations
+- [e.g.: requires the backoffice to expose X] · [e.g.: depends on an external provider for Y]
+- Does this integrate with something external that already exists, or does it get built in-house? [decide and justify; if it's a big business decision, take it to business-case]
 
-## Definición de "hecho"
-- Todos los criterios EARS pasan como casos de prueba
-- [métrica que se moverá] instrumentada y visible en el backoffice/analítica
+## Definition of "done"
+- All EARS criteria pass as test cases
+- [metric that will move] instrumented and visible in the backoffice/analytics
 
-## Cómo se valida antes de escalar
-[enlaza a la skill validate-fast: la prueba más barata que confirma la hipótesis]
+## How it's validated before scaling
+[link to the validate-fast skill: the cheapest test that confirms the hypothesis]
 ```
 
-## Reglas de escritura de los criterios
+## Rules for writing the criteria
 
-- Nada de adjetivos ("rápido", "fácil", "intuitivo"). Solo comportamiento que se puede observar y testear.
-- Un criterio = un comportamiento. Si una línea tiene un "y", pártela en dos.
-- Cubre siempre: el camino feliz, al menos un caso de borde, y al menos un caso de error.
-- Si no puedes testearlo, no es un criterio de aceptación; es un deseo. Reescríbelo.
+- No adjectives ("fast", "easy", "intuitive"). Only behavior that can be observed and tested.
+- One criterion = one behavior. If a line has an "and," split it in two.
+- Always cover: the happy path, at least one edge case, and at least one error case.
+- If you can't test it, it's not an acceptance criterion; it's a wish. Rewrite it.
 
-## Por qué EARS
+## Why EARS
 
-Los criterios en condición-comportamiento mapean casi uno a uno con casos de prueba. Eso es lo que permite que un ingeniero o un agente de IA implemente contra el spec sin tener que interpretarte. El handoff es limpio porque el artefacto es estructurado, no una conversación que hay que descifrar.
+Condition-behavior criteria map almost one-to-one with test cases. That's what lets an engineer or an AI agent implement against the spec without having to interpret you. The handoff is clean because the artifact is structured, not a conversation someone has to decipher.
 
-## Salida esperada
+## Expected output
 
-El markdown de arriba, lleno, para la feature concreta. Corto y ejecutable.
+The markdown above, filled in, for the specific feature. Short and executable.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Recibe de cualquier skill que produjo una decisión de producto (`design-monetization-model`, `evaluate-vertical`, `prioritize-roadmap`). En la primera pasada, sigue con `build-prototype` (el spec origina el prototipo, no al revés) y, si aplica, con `validate-fast` para la sección "cómo se valida". En la segunda pasada, recibe de `finalize-product-design` y alimenta directamente `/plan`.
+Receives from any skill that produced a product decision (`design-monetization-model`, `evaluate-vertical`, `prioritize-roadmap`). In the first pass, follow with `build-prototype` (the spec originates the prototype, not the other way around) and, if applicable, `validate-fast` for the "how it's validated" section. In the second pass, receives from `finalize-product-design` and feeds directly into `/plan`.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si algún criterio de aceptación usa un adjetivo no medible ("rápido", "fácil", "intuitivo").
-- No está completo si falta el bloque de fuera de alcance.
-- No está completo si algún criterio EARS no se puede convertir directamente en un caso de prueba.
-- No está completo si falta la sección de cómo se valida antes de escalar (o si esa sección quedó sin resolver en la segunda pasada, cuando ya debería estar cerrada).
-- No está completo si la segunda pasada todavía describe lo que se esperaba al principio en vez de lo que realmente quedó validado y finalizado.
+- Not complete if any acceptance criterion uses a non-measurable adjective ("fast", "easy", "intuitive").
+- Not complete if the out-of-scope block is missing.
+- Not complete if any EARS criterion can't be turned directly into a test case.
+- Not complete if the "how it's validated before scaling" section is missing (or if that section is still unresolved in the second pass, when it should already be closed).
+- Not complete if the second pass still describes what was expected at the start instead of what actually got validated and finalized.

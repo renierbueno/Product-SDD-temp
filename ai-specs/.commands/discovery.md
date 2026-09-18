@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill discovery-operator sobre un operador, vertical o touchpoint
-argument-hint: [operador, vertical o touchpoint a investigar]
+description: Invokes the discovery-operator skill on an operator, vertical, or touchpoint
+argument-hint: [operator, vertical, or touchpoint to investigate]
 ---
 
 # /discovery
 
-Invoca la skill `discovery-operator` (usa la tool Skill con skill: "discovery-operator") con este contexto:
+Invoke the `discovery-operator` skill (use the Skill tool with skill: "discovery-operator") with this context:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/discovery-operator/SKILL.md`: las tres capas de preguntas (negocio, flujo, contexto físico), separa dolor real de capricho, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/discovery-operator/SKILL.md`: the three layers of questions (business, flow, physical context), separate real pain from whim, and deliver that skill's expected output.

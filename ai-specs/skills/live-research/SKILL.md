@@ -1,87 +1,87 @@
 ---
 name: live-research
-description: Usar cuando falta un dato durante una sesión y hay que buscarlo en el momento. Cubre cinco tipos de dato de mercado (tamaño del vertical, comparables de monetización, regulación, benchmarks de precio, comportamiento de usuario), no solo competidores. Es para contexto VIVO que no vive en docs. Produce hallazgos estructurados de forma que el resto del harness los pueda consumir, siempre marcados como señal direccional.
+description: Use when a data point is missing during a session and needs to be looked up in the moment. Covers five types of market data (vertical size, monetization comparables, regulation, price benchmarks, user behavior), not just competitors. It's for LIVE context that doesn't live in docs. Produces structured findings the rest of the harness can consume, always marked as a directional signal.
 ---
 
-# Investigación en vivo
+# Live research
 
-Objetivo: traer datos que no tenemos precargados, en el momento, sin romper el resto del flujo. El principio del harness es que el contexto estable vive en `docs/` y el contexto vivo se busca. Esta skill es el "se busca", y cubre más que competidores.
+Goal: bring in data we don't have preloaded, in the moment, without breaking the rest of the flow. The harness's principle is that stable context lives in `docs/` and live context gets looked up. This skill is the "looked up," and it covers more than competitors.
 
-## Cuándo usarla
+## When to use it
 
-Úsala para cualquiera de las cinco categorías de abajo. NO la uses para datos internos de la empresa/proyecto (métricas propias, ICP real, churn): eso no se busca, se PREGUNTA al equipo, va a `doc_open_questions.md`. NO la uses tampoco para releer algo que ya está en `docs/doc_company_context.md` o `docs/doc_market_research.md`; primero mira si ya lo tienes.
+Use it for any of the five categories below. Do NOT use it for internal company/project data (own metrics, real ICP, churn): that doesn't get looked up, it gets ASKED of the team, and goes to `doc_open_questions.md`. Also do NOT use it to reread something already in `docs/doc_company_context.md` or `docs/doc_market_research.md`; check first whether you already have it.
 
-## Las cinco categorías, y qué decisión alimenta cada una
+## The five categories, and which decision each one feeds
 
-**1. Tamaño y crecimiento del vertical concreto**
-No es lo mismo el tamaño de la categoría general que el tamaño del vertical concreto que te están preguntando (cuántos actores hay, si el sector crece o se estanca, qué tan fragmentado está entre muchos operadores pequeños o pocas cadenas grandes).
-Pregunta tipo: "tamaño mercado [vertical] [país] [año]", "número de operadores [sector] fragmentación [región]".
-Alimenta: `evaluate-vertical` (decisión de entrar o no) y `prioritize-roadmap` (el Reach de un RICE).
+**1. Size and growth of the specific vertical**
+The size of the general category isn't the same as the size of the specific vertical being asked about (how many players there are, whether the sector is growing or stagnant, how fragmented it is between many small operators or a few large chains).
+Sample question: "market size [vertical] [country] [year]", "number of operators [sector] fragmentation [region]".
+Feeds: `evaluate-vertical` (the enter-or-not decision) and `prioritize-roadmap` (a RICE's Reach).
 
-**2. Comparables de monetización**
-Quién ya hace algo parecido y cómo lo cobra.
-Pregunta tipo: "quién monetiza algo parecido a [touchpoint] en [contexto]", "modelo de ingresos [comparable]".
-Alimenta: `design-monetization-model` (qué modelos existen) y `business-case` (precedente para defender la decisión).
+**2. Monetization comparables**
+Who's already doing something similar and how they charge for it.
+Sample question: "who monetizes something similar to [touchpoint] in [context]", "revenue model [comparable]".
+Feeds: `design-monetization-model` (which models exist) and `business-case` (precedent to defend the decision).
 
-**3. Regulación específica del vertical o del modelo**
-La categoría que más se salta la gente y la que más rápido delata a alguien que no ha pensado el problema del todo. Cualquier modelo que segmente por comportamiento o ubicación toca protección de datos. Ciertas categorías de producto o servicio tienen restricciones propias.
-Pregunta tipo: "regulación protección de datos publicidad segmentada ubicación", "normativa [vertical] [país]".
-Alimenta: `evaluate-vertical` (Paso 2b, build vs. integrate) y `business-case` (qué arriesga).
+**3. Regulation specific to the vertical or the model**
+The category people skip most often, and the one that most quickly gives away someone who hasn't fully thought through the problem. Any model that segments by behavior or location touches data protection. Certain product or service categories have their own restrictions.
+Sample question: "location-based targeted advertising data protection regulation", "[vertical] regulation [country]".
+Feeds: `evaluate-vertical` (Step 2b, build vs. integrate) and `business-case` (what's at risk).
 
-**4. Benchmarks de precio unitario**
-Sin esto, cualquier proyección de ingresos en `business-case` es una cifra inventada. Necesitas el ancla: cuánto vale un CPM comparable, cuánto es una comisión típica del sector, cuánto paga alguien por captar un contacto o una conversión similar.
-Pregunta tipo: "CPM medio [formato] [país]", "comisión típica [sector]".
-Alimenta: `business-case` (el escenario de ingresos con supuestos visibles) directamente, no se puede escribir ese bloque sin esto.
+**4. Unit price benchmarks**
+Without this, any revenue projection in `business-case` is a made-up number. You need the anchor: how much a comparable CPM is worth, what a typical commission in the sector is, how much someone pays to acquire a similar contact or conversion.
+Sample question: "average CPM [format] [country]", "typical commission [sector]".
+Feeds: `business-case` (the revenue scenario with visible assumptions) directly, that block can't be written without this.
 
-**5. Comportamiento de usuario en ese tipo de contexto**
-Datos de industria sobre cómo reacciona la gente a un formato, no una opinión tuya. Tasas de escaneo de QR en punto físico, tasas de conversión de pantallas interactivas, cuánto tiempo de atención capta un formato comparable.
-Pregunta tipo: "tasa de conversión [formato/canal] benchmark", "tiempo de atención [formato] benchmark".
-Alimenta: `design-monetization-model` (el eje fricción-vs-momento deja de ser intuición y se vuelve argumento).
+**5. User behavior in that type of context**
+Industry data on how people react to a format, not your own opinion. QR-code scan rates at a physical point, conversion rates of interactive screens, how much attention span a comparable format captures.
+Sample question: "conversion rate [format/channel] benchmark", "attention time [format] benchmark".
+Feeds: `design-monetization-model` (the friction-vs-moment axis stops being intuition and becomes an argument).
 
-Todas alimentan también `human-validation`: un benchmark de industria es el umbral con el que comparas tu propia señal cuando valides con personas reales.
+All of them also feed `human-validation`: an industry benchmark is the threshold you compare your own signal against when you validate with real people.
 
-## Cómo buscar sin perder la sesión
+## How to search without losing the session
 
-1. **Una pregunta concreta por búsqueda**, dentro de una sola categoría de las cinco. No mezcles "tamaño de mercado y regulación" en una búsqueda.
-2. **Antes de buscar, decide qué decisión cambia.** Si el dato no mueve una decisión de la sesión, no lo busques.
-3. **Máximo 2 o 3 búsquedas por pregunta.** Si no aparece, di que no hay dato público claro y sigue con el supuesto marcado.
-4. **Prioriza fuente original** (informe sectorial, regulador, web de la empresa comparable) sobre agregadores.
-5. **Casos de fracaso también cuentan**, no solo de éxito. Busca activamente si algún comparable de la categoría 2 falló o se retiró.
+1. **One concrete question per search**, within a single one of the five categories. Don't mix "market size and regulation" in one search.
+2. **Before searching, decide which decision it changes.** If the data point doesn't move a decision in the session, don't look it up.
+3. **Maximum 2 or 3 searches per question.** If nothing turns up, say there's no clear public data and move on with the assumption marked.
+4. **Prioritize the original source** (sector report, regulator, the comparable company's own site) over aggregators.
+5. **Failure cases count too**, not just successes. Actively look for whether any category-2 comparable failed or shut down.
 
-## Regla de honestidad (la más importante)
+## Honesty rule (the most important one)
 
-- Un comparable no es una validación. Prueba que alguien lo hace, no que funcione aquí.
-- Muestra de una o dos empresas por vertical = señal direccional, nunca conclusión.
-- Nunca inventes una cifra para llenar un hueco, ni de mercado ni de precio. Si no hay dato público, el output es "no hay dato público fiable, esto queda como pregunta para el equipo".
-- No mezcles dato externo (esto se busca) con dato interno de la empresa/proyecto (esto se pregunta). Si la pregunta es sobre la propia empresa, no es tarea de esta skill, va a `doc_open_questions.md`.
+- A comparable isn't validation. It proves someone does it, not that it'll work here.
+- A sample of one or two companies per vertical = directional signal, never a conclusion.
+- Never invent a figure to fill a gap, whether market or price data. If there's no public data, the output is "no reliable public data, this stays as a question for the team."
+- Don't mix external data (this gets looked up) with internal company/project data (this gets asked). If the question is about the company itself, it's not this skill's job, it goes to `doc_open_questions.md`.
 
-## Cómo comunicarlo
+## How to communicate it
 
-Verbaliza el estado del dato en el momento en que lo buscas, no lo escondas dentro de la respuesta final: "este dato no lo tengo precargado porque cambia rápido, así que lo busco ahora." Y, según la categoría: "encontré [X], pero es una sola empresa, así que lo tomo como dirección, no como prueba" (categoría 2 o 5), o "sin un benchmark de precio no puedo dar una cifra de ingreso responsable, así que lo busco antes de proponer un número" (categoría 4), o "antes de proponer este modelo, tendría que confirmar si hay alguna restricción regulatoria, lo miro ahora" (categoría 3).
+Say the state of the data out loud at the moment you look it up, don't hide it inside the final answer: "I don't have this preloaded because it changes fast, so I'm looking it up now." And, depending on the category: "I found [X], but it's a single company, so I'm treating it as a direction, not proof" (category 2 or 5), or "without a price benchmark I can't give a responsible revenue figure, so I'm looking it up before proposing a number" (category 4), or "before proposing this model, I'd need to confirm whether there's any regulatory restriction, checking now" (category 3).
 
-## Salida esperada
+## Expected output
 
 ```
-Categoría: [1-5, de la lista de arriba]
-Pregunta que responde: [la decisión que estaba bloqueada]
-Hallazgo: [el dato, en una frase]
-Fuente y fecha: [de dónde, cuándo]
-Tamaño de la evidencia: [una empresa / un informe / patrón repetido en varias]
-Fuerza de la señal: [FUERTE si varias fuentes coinciden / DÉBIL si es un solo caso]
-Qué decisión cambia: [cómo afecta a la sesión]
-Supuesto que quedaría si esto es cierto: [lo que asumes a partir de aquí, tagueado para validar con el equipo]
+Category: [1-5, from the list above]
+Question it answers: [the decision that was blocked]
+Finding: [the data point, in one sentence]
+Source and date: [where from, when]
+Size of the evidence: [one company / one report / a repeated pattern across several]
+Signal strength: [STRONG if several sources agree / WEAK if it's a single case]
+What decision it changes: [how it affects the session]
+Assumption this would leave in place if true: [what you're assuming from here on, tagged for the team to validate]
 ```
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-- Categorías 1 y 3 → `evaluate-vertical`.
-- Categoría 2 → `design-monetization-model` y `business-case`.
-- Categoría 4 → `business-case`, obligatorio antes de dar cualquier cifra de ingreso.
-- Categoría 5 → `design-monetization-model`, y de ancla para `human-validation`.
-- Un supuesto que confirmas o tumbas se actualiza verbalmente en la sesión; NO se reescribe `docs/doc_market_research.md` en caliente, el doc es contexto estable con fecha, la sesión es efímera.
+- Categories 1 and 3 → `evaluate-vertical`.
+- Category 2 → `design-monetization-model` and `business-case`.
+- Category 4 → `business-case`, mandatory before giving any revenue figure.
+- Category 5 → `design-monetization-model`, and an anchor for `human-validation`.
+- An assumption you confirm or knock down gets updated verbally in the session; `docs/doc_market_research.md` does NOT get rewritten on the fly, the doc is stable, dated context, the session is ephemeral.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si el hallazgo no dice tamaño de la evidencia y fuerza de la señal.
-- No está completo si mezcla dato externo con dato interno de la empresa/proyecto.
-- No está completo si se buscó sin que hubiera una decisión concreta bloqueada por ese dato.
+- Not complete if the finding doesn't state the size of the evidence and the signal strength.
+- Not complete if it mixes external data with internal company/project data.
+- Not complete if the search happened without a concrete decision blocked by that data point.

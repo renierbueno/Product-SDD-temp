@@ -1,22 +1,22 @@
-# Preguntas abiertas para el equipo
+# Open questions for the team
 
 Questions with no confirmed answer yet — internal/undecided facts, never invented.
 External market data that can be looked up belongs in `doc_market_research.md`
-(`live-research`), not here. Starts empty on purpose — se llena a medida que cualquier
-skill se topa con algo que no sabe, nunca se rellena por adelantado con supuestos.
+(`live-research`), not here. Starts empty on purpose — it fills up as any skill runs into
+something it doesn't know, never pre-filled with assumptions ahead of time.
 
-## Para Producto / Data
-
--
-
-## Para Comercial / Ventas
+## For Product / Data
 
 -
 
-## Para Dirección / Estrategia
+## For Commercial / Sales
 
 -
 
-## Datos de retención
+## For Leadership / Strategy
+
+-
+
+## Retention data
 
 -

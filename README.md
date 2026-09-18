@@ -1,43 +1,43 @@
-# product-sdd — Harness de Spec-Driven Development
+# product-sdd — Spec-Driven Development Harness
 
-Andamiaje portable para llevar una idea de producto de cero a validado sin ser el cuello de botella de ingeniería. Está pensado para usarse con Claude, Cursor o Codex indistintamente: hay una única fuente canónica en `ai-specs/` y cada copiloto lee de ahí.
+Portable scaffolding for taking a product idea from zero to validated without being engineering's bottleneck. It's meant to be used with Claude, Cursor, or Codex interchangeably: there's a single canonical source in `ai-specs/` and each copilot reads from there.
 
-La filosofía es la que se volvió estándar en 2026: el spec es el artefacto durable y ejecutable, el prompt es desechable. El PM es dueño del `/spec` (problema, historia de usuario, criterios de aceptación, fuera de alcance); ingeniería es dueña del `/plan` y las `tasks`. La entrega es limpia porque el spec está estructurado, no porque haya una conversación que alguien tenga que descifrar.
+The philosophy is the one that became standard in 2026: the spec is the durable, executable artifact, the prompt is disposable. The PM owns the `/spec` (problem, user story, acceptance criteria, out of scope); engineering owns the `/plan` and the `tasks`. The handoff is clean because the spec is structured, not because there's a conversation someone has to decipher.
 
-## Cómo se usa en una sesión
+## How it's used in a session
 
-Cada skill es un comando real (`.claude/commands/`, ver Estructura abajo), no solo texto para invocar por descripción. El orden sigue el ciclo completo del PM — **reordenado 2026-09-17** tras auditar cómo equipos de producto AI-native (Anthropic, OpenAI, Google, Meta) secuencian esto en la práctica real: el prototipo se mueve temprano, antes de comprometer validación formal o identidad visual, en vez de ser casi el último paso. No todo problema usa todas las skills; eliges según cuál sea:
+Each skill is a real command (`.claude/commands/`, see Structure below), not just text to invoke by description. The order follows the PM's full cycle — **reordered 2026-09-17** after auditing how AI-native product teams (Anthropic, OpenAI, Google, Meta) actually sequence this in practice: the prototype moves early, before committing to formal validation or visual identity, instead of being almost the last step. Not every problem uses every skill; you choose based on which one it is:
 
-1. **Descubrir** — `/discovery`, si el problema es abierto, te da el guion para entender el negocio, el flujo y el contexto físico, y encontrar el problema real.
-2. **Elegir modelo** — `/monetize`, si va de monetizar un touchpoint compartido, te ayuda a elegir entre los modelos posibles sopesando el dueño del punto, el tercero que paga, y la fricción del usuario final, sin jerarquía fija.
-3. **Encuadrar vertical** — `/evaluate`, si es "¿deberíamos entrar en X?", con la matriz plataforma-vs-específico.
-4. **Argumentar** — `/business-case` para defender la decisión en términos de negocio y resolver build-vs-integrate.
-5. **Priorizar** — `/prioritize`, si hay varias opciones, da el marco con criterio explícito.
-6. **Especificar — borrador** — `/spec` produce un spec EARS ligero: la decisión ya tomada, convertida en algo que origina el prototipo y, si aplica, la hipótesis que `validate-fast` va a rellenar. No es la versión final — esa llega después de `finalize-product-design`, ver más abajo.
-7. **Prototipar** — `/prototype` genera un artifact funcional para mostrar el flujo en vez de contarlo. Por defecto es de BAJA fidelidad (gris/neutro) — no necesita identidad visual fijada. Valida UN flujo rápido, antes de invertir en validación formal o en pulir la marca; no es el diseño final de todo el producto.
-8. **Validar qué** — si aplica, `/validate` define la prueba más barata que confirma o mata la hipótesis — ahora contra el prototipo real que ya existe, no solo una hipótesis en papel.
-9. **Validar cómo** — si aplica, `/human-validate` es el guion de ejecución con personas reales: pedir compromiso en vez de opinión, tamaño de muestra, evitar señales falsas. Especialmente necesario en modelos de varias caras (dueño del punto, tercero que paga, usuario final). En un proyecto solo/sin usuarios externos que validar, esto lo puede reemplazar una revisión directa del propio PM — sigue siendo un chequeo real, solo que informal, no una de las 13 skills.
+1. **Discover** — `/discovery`, if the problem is open-ended, gives you the script to understand the business, the flow, and the physical context, and to find the real problem.
+2. **Pick a model** — `/monetize`, if it's about monetizing a shared touchpoint, helps you choose between the possible models by weighing the touchpoint owner, the third party who pays, and the end user's friction, with no fixed hierarchy.
+3. **Frame the vertical** — `/evaluate`, if it's "should we enter X?", with the platform-vs-specific matrix.
+4. **Make the case** — `/business-case` to defend the decision in business terms and resolve build-vs-integrate.
+5. **Prioritize** — `/prioritize`, if there are several options, gives the framework with an explicit criterion.
+6. **Specify — draft** — `/spec` produces a light EARS spec: the decision already made, turned into something that originates the prototype and, if applicable, the hypothesis that `validate-fast` will fill in. It's not the final version — that comes after `finalize-product-design`, see below.
+7. **Prototype** — `/prototype` generates a functional artifact to show the flow instead of describing it. By default it's LOW fidelity (gray/neutral) — doesn't need a fixed visual identity. Validates ONE fast flow, before investing in formal validation or polishing the brand; it's not the final design of the whole product.
+8. **Validate what** — if applicable, `/validate` defines the cheapest test that confirms or kills the hypothesis — now against the real prototype that already exists, not just a hypothesis on paper.
+9. **Validate how** — if applicable, `/human-validate` is the execution script with real people: asking for commitment instead of opinion, sample size, avoiding false signals. Especially necessary in multi-sided models (touchpoint owner, paying third party, end user). On a solo project with no external users to validate, a direct review by the PM can replace this — it's still a real check, just informal, not one of the 13 skills.
 
-`/design-system` no es un paso numerado del flujo lineal, y no es prerrequisito de todo prototipo — solo de uno de ALTA fidelidad (con marca real), y solo una vez que el flujo de baja fidelidad ya pasó por el paso 8/9 de arriba. Orden estándar verificado (2026-09-17, Nielsen Norman Group y guías de proceso UX): investigación → flujo en baja fidelidad → diseño visual en alta fidelidad, no al revés. Se invoca una vez por proyecto, cuando se necesita esa versión de alta fidelidad por primera vez, y no se repite cada sesión — solo se revisita con una revisión deliberada de marca. Si la conversación dentro de `/prototype` empieza a girar en torno a paleta, tipografía o "esto no se siente diferenciado", esa es la señal de volver a `/design-system` en vez de seguir iterando ahí.
+`/design-system` isn't a numbered step in the linear flow, and isn't a prerequisite for every prototype — only for a HIGH-fidelity one (with real branding), and only once the low-fidelity flow has already passed step 8/9 above. Standard order verified (2026-09-17, Nielsen Norman Group and UX process guides): research → low-fidelity flow → high-fidelity visual design, not the other way around. It's invoked once per project, when that high-fidelity version is needed for the first time, and doesn't repeat every session — it's only revisited with a deliberate brand review. If the conversation inside `/prototype` starts circling around palette, typography, or "this doesn't feel differentiated," that's the signal to go back to `/design-system` instead of continuing to iterate there.
 
-`/voice` tampoco es un paso numerado — es el equivalente de `/design-system` pero para palabras (verificado 2026-09-17, práctica real de content design: la voz se fija con reglas Do/Don't accionables y ejemplos reales, nunca adjetivos sueltos, y el tono varía por contexto aunque la voz se mantenga constante). Sin esto, el copy se decide al vuelo dentro de `/prototype` — la misma deriva que ya pasó con color antes de que existiera `/design-system`. Se fija una vez, se revisa solo deliberadamente. Mismo momento que `/design-system`: después del flujo validado, antes de invertir en el inventario completo.
+`/voice` isn't a numbered step either — it's the equivalent of `/design-system` but for words (verified 2026-09-17, real content-design practice: voice gets locked with actionable Do/Don't rules and real examples, never loose adjectives, and tone varies by context even while the voice stays constant). Without this, copy gets decided on the fly inside `/prototype` — the same drift that already happened with color before `/design-system` existed. It's locked once, only revisited deliberately. Same moment as `/design-system`: after the flow is validated, before investing in the complete inventory.
 
-`/finalize-design` tampoco es un paso numerado del flujo lineal — viene DESPUÉS de `/prototype` (flujo validado) y `/design-system`/`/voice` (identidad y voz fijadas), cuando hace falta el diseño completo y definitivo de cada pantalla/estado real, listo para ingeniería. No es lo mismo que un prototipo de alta fidelidad: verificado (2026-09-17, señal MEDIA-FUERTE) que incluso dentro de un mismo rol de diseño, "mockup de alta fidelidad" (la referencia completa) y "prototipo" (la validación rápida de un flujo) son entregables distintos. Bundlearlos fue exactamente la confusión que esta skill separada evita.
+`/finalize-design` isn't a numbered step in the linear flow either — it comes AFTER `/prototype` (flow validated) and `/design-system`/`/voice` (identity and voice locked), when the complete, final design of every real screen/state is needed, ready for engineering. It's not the same as a high-fidelity prototype: verified (2026-09-17, MEDIUM-STRONG signal) that even within the same design role, a "high-fidelity mockup" (the complete reference) and a "prototype" (the fast validation of a flow) are distinct deliverables. Bundling them was exactly the confusion this separate skill avoids.
 
-**Especificar — versión final**, después de `/finalize-design`: se vuelve a invocar `write-spec` (misma skill, segunda pasada) para revisar y cerrar el spec con lo que realmente quedó validado y finalizado — no con lo que se esperaba al principio. Esto es lo que `/plan` toma como artefacto durable, junto con el inventario de `/finalize-design` cuando existe.
+**Specify — final version**, after `/finalize-design`: `write-spec` gets invoked again (same skill, second pass) to review and close the spec with what actually got validated and finalized — not with what was expected at the start. This is what `/plan` takes as the durable artifact, along with `/finalize-design`'s inventory when it exists.
 
-`/research` tampoco es un paso fijo del flujo, pero por la razón opuesta a `/design-system`: se invoca ad hoc cada vez que falta un dato de mercado en cualquiera de los pasos anteriores, y busca en el momento en vez de asumir. `/plan` no lo usa el PM: toma el spec ya finalizado y lo ejecuta el agente `engineer` — y cuando el proyecto necesitó `/finalize-design`, es ESE inventario completo el que `/plan` construye, no el prototipo de validación.
+`/research` isn't a fixed step in the flow either, but for the opposite reason as `/design-system`: it's invoked ad hoc whenever a market data point is missing in any of the previous steps, and looks it up in the moment instead of assuming. The PM doesn't use `/plan`: it takes the already-finalized spec and the `engineer` agent executes it — and when the project needed `/finalize-design`, it's THAT complete inventory that `/plan` builds from, not the validation prototype.
 
-## Estructura
+## Structure
 
 ```
 .
-├── ai-specs/                       # fuente canónica; .claude/ .codex/ .cursor/ son symlinks hacia aquí
-│   ├── .agents/        # roles que el copiloto puede adoptar
-│   ├── .commands/      # comandos reales: /discovery /monetize /evaluate /business-case
+├── ai-specs/                       # canonical source; .claude/ .codex/ .cursor/ are symlinks into here
+│   ├── .agents/        # roles the copilot can adopt
+│   ├── .commands/      # real commands: /discovery /monetize /evaluate /business-case
 │   │                   # /prioritize /spec /prototype /validate /human-validate
 │   │                   # /design-system /voice /finalize-design /research /plan
-│   └── skills/         # los flujos reutilizables, uno por comando (misma forma en las 13)
+│   └── skills/         # the reusable flows, one per command (same shape across all 13)
 │       ├── discovery-operator/
 │       ├── design-monetization-model/
 │       ├── evaluate-vertical/
@@ -51,41 +51,41 @@ Cada skill es un comando real (`.claude/commands/`, ver Estructura abajo), no so
 │       ├── build-prototype/
 │       ├── finalize-product-design/
 │       └── live-research/
-├── docs/               # doc_base_standards.md (cómo se decide/especifica/valida/cambia
-│   │                     # el harness, se precarga siempre) + el contexto, partido en
-│   │                     # cinco por naturaleza del dato:
-│   ├── doc_base_standards.md      # estándares base del harness — genérico, ya viene completo
-│   ├── doc_company_context.md     # estable, se precarga (qué es la empresa, producto, negocio) — plantilla, llenala antes de arrancar
-│   ├── doc_market_research.md     # vivo, con fecha, lo refresca skills/live-research — plantilla
-│   └── doc_open_questions.md      # lo que no sabemos, se pregunta al equipo, no se inventa — plantilla, arranca vacía
-├── specs/               # salida real de /spec para este proyecto — empieza vacía
+├── docs/               # doc_base_standards.md (how the harness itself decides/specifies/
+│   │                     # validates/changes, always preloaded) + context, split into
+│   │                     # four by data nature:
+│   ├── doc_base_standards.md      # the harness's base standards — generic, already complete
+│   ├── doc_company_context.md     # stable, preloaded (what the company/product/business is) — template, fill it in before starting
+│   ├── doc_market_research.md     # live, dated, refreshed by skills/live-research — template
+│   └── doc_open_questions.md      # what we don't know, asked of the team, never invented — template, starts empty
+├── specs/               # real /spec output for this project — starts empty
 └── README.md
 ```
 
-`docs/doc_design_system.md` y `docs/doc_voice.md` no vienen en el repo — no son plantillas para llenar a mano, son SALIDA de `establish-design-system` y `lock-content-voice` (se crean solas la primera vez que corrés esas skills). Si una skill que los necesita no los encuentra, te lo va a decir y te va a sugerir cuál correr antes — no hace falta crearlos vos.
+`docs/doc_design_system.md` and `docs/doc_voice.md` don't ship in the repo — they're not templates to fill in by hand, they're OUTPUT from `establish-design-system` and `lock-content-voice` (they get created the first time you run those skills). If a skill that needs them can't find them, it'll say so and suggest which one to run first — you don't need to create them yourself.
 
-El principio detrás del split de `docs/`: lo estable se precarga, lo que cambia rápido se busca en el momento, lo que no sabemos se pregunta (nunca se inventa), y una decisión de diseño se fija una vez y se reutiliza — no se vuelve a decidir en cada prototipo.
+The principle behind the `docs/` split: what's stable gets preloaded, what changes fast gets looked up in the moment, what we don't know gets asked (never invented), and a design decision gets locked once and reused — not re-decided on every prototype.
 
-## Por qué esto y no un PRD
+## Why this and not a PRD
 
-Un PRD de treinta páginas escrito antes de un prototipo es papeleo waterfall, no SDD. Aquí escribes el mínimo spec que elimina la ambigüedad para la siguiente fase, y validas los supuestos temprano. Los criterios de aceptación van en formato condición-comportamiento (EARS) porque así mapean casi uno a uno con casos de prueba, que es exactamente lo que necesita un agente de IA o un ingeniero para no tener que adivinar qué quisiste decir.
+A thirty-page PRD written before a prototype is waterfall paperwork, not SDD. Here you write the minimum spec that removes ambiguity for the next phase, and validate assumptions early. Acceptance criteria go in condition-behavior format (EARS) because that maps almost one-to-one with test cases, which is exactly what an AI agent or an engineer needs to not have to guess what you meant.
 
-## Cómo empezar en un proyecto nuevo
+## How to start a new project
 
-1. Usá el botón **"Use this template"** de GitHub para crear tu propia copia (o cloná el repo directamente).
-2. Rellená `docs/doc_company_context.md` con el contexto real de tu empresa/producto antes de invocar la primera skill — todas lo leen como punto de partida.
-3. Corré `/discovery` (o el comando que aplique si ya tenés el problema claro — ver la tabla de arriba).
+1. Use GitHub's **"Use this template"** button to create your own copy (or clone the repo directly).
+2. Fill in `docs/doc_company_context.md` with your real company/product context before invoking the first skill — all of them read it as the starting point.
+3. Run `/discovery` (or the command that applies if you already have the problem clear — see the table above).
 
-`docs/doc_market_research.md` y `docs/doc_open_questions.md` se van poblando durante el trabajo, no antes: el primero vía `skills/live-research`, el segundo a mano cuando surge una pregunta que solo el equipo puede responder. Este repo no trae ejemplos resueltos ni datos de ninguna empresa concreta — son específicos de cada proyecto; cada `SKILL.md` describe su propio formato de salida esperado.
+`docs/doc_market_research.md` and `docs/doc_open_questions.md` get populated during the work, not before: the first one via `skills/live-research`, the second by hand whenever a question comes up that only the team can answer. This repo doesn't ship with solved examples or data from any real company — those are specific to each project; each `SKILL.md` describes its own expected output format.
 
-## Uso real
+## Real use
 
-Este es el harness que uso para construir mi propio trabajo — incluyendo mi portfolio profesional, que corrió el flujo completo (discovery → priorización → spec → prototipo → validación) antes de escribir una sola línea de código del sitio. No es un ejercicio teórico.
+This is the harness I use to build my own work — including my professional portfolio, which ran the full flow (discovery → prioritization → spec → prototype → validation) before a single line of the site's code got written. It's not a theoretical exercise.
 
-## Créditos
+## Credits
 
-La arquitectura portable (`ai-specs/` como fuente canónica + symlinks a `.claude`/`.cursor`/`.codex`) está adaptada de [LIDR-academy/lidr-specboot](https://github.com/LIDR-academy/lidr-specboot) (MIT), un harness pensado para ingeniería. Las 13 skills y todo el contenido metodológico de acá son una reescritura propia para trabajo de PM, construida con asistencia de IA (Claude Code) — no comparten texto con el original.
+The portable architecture (`ai-specs/` as the canonical source + symlinks to `.claude`/`.cursor`/`.codex`) is adapted from [LIDR-academy/lidr-specboot](https://github.com/LIDR-academy/lidr-specboot) (MIT), a harness built for engineering. The 13 skills and all the methodology content here are an original rewrite for PM work, built with AI assistance (Claude Code) — none of the text is shared with the original.
 
-## Licencia
+## License
 
-MIT — ver `LICENSE`. Usalo, adaptalo, quedátelo.
+MIT — see `LICENSE`. Use it, adapt it, keep it.

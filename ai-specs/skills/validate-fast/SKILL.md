@@ -1,65 +1,65 @@
 ---
 name: validate-fast
-description: Usar para definir la prueba más barata que confirma o mata una hipótesis antes de comprometer a ingeniería. Evita que el PM sea el cuello de botella pidiendo builds para validar cosas que se pueden validar sin código.
+description: Use to define the cheapest test that confirms or kills a hypothesis before committing engineering. Keeps the PM from being the bottleneck by asking for builds to validate things that can be validated without code.
 ---
 
-# Validar rápido, antes de escalar
+# Validate fast, before escalating
 
-Objetivo: no pedirle a ingeniería que construya algo para descubrir si la idea sirve. Definir la validación más barata primero.
+Goal: don't ask engineering to build something to find out if the idea works. Define the cheapest validation first.
 
-## Cuándo usarla
+## When to use it
 
-- Hay una hipótesis de producto y hace falta la prueba más barata que la confirme o la mate.
-- Alguien está a punto de pedirle un build a ingeniería para algo que se podría validar sin código.
-- Toca rellenar la sección "cómo se valida" de un spec.
+- There's a product hypothesis and you need the cheapest test that confirms or kills it.
+- Someone's about to ask engineering for a build for something that could be validated without code.
+- Time to fill in a spec's "how it's validated" section.
 
-## Paso 1 — Formula la hipótesis como algo falsable
-
-```
-Creemos que [usuario] hará [comportamiento] porque [razón].
-Sabremos que es cierto si [métrica] supera [umbral] en [plazo].
-Lo mataremos si [señal de fracaso].
-```
-
-## Paso 2 — Elige el método más barato que la responda
-
-Ordena de más barato a más caro; usa el primero que responda de verdad:
-
-1. **Datos que ya existen** — ¿el backoffice/analítica ya tiene datos de otro contexto que respondan esto sin construir nada?
-2. **Prueba de humo / fake door** — un botón o pantalla que mide intención sin backend real detrás.
-3. **Concierge / manual** — resolver el flujo a mano antes de automatizarlo.
-4. **Prototipo con IA** — un artifact que muestra el flujo para test con usuarios (enlaza `build-prototype`).
-5. **MVP real** — solo si los cuatro anteriores no bastan.
-
-## Paso 3 — Diseña el test concreto
+## Step 1 — State the hypothesis as something falsifiable
 
 ```
-Método elegido: [uno de los 5]
-Con quién: [socio operativo real / usuario final / equipo comercial]
-Qué mide exactamente: [la métrica]
-Umbral de éxito: [número]
-Plazo: [días]
-Coste (tiempo/dinero): [estimado]
+We believe [user] will [behavior] because [reason].
+We'll know it's true if [metric] clears [threshold] within [timeframe].
+We'll kill it if [failure signal].
 ```
 
-## Regla de oro
+## Step 2 — Choose the cheapest method that answers it
 
-Si la validación exige más esfuerzo de ingeniería que construir la feature entera, estás validando mal. Baja un escalón en la lista de métodos.
+Order from cheapest to most expensive; use the first one that genuinely answers it:
 
-## Con datasets pequeños
+1. **Data that already exists** — does the backoffice/analytics already have data from another context that answers this without building anything?
+2. **Smoke test / fake door** — a button or screen that measures intent with no real backend behind it.
+3. **Concierge / manual** — do the flow by hand before automating it.
+4. **AI-built prototype** — an artifact that shows the flow for a user test (links to `build-prototype`).
+5. **Real MVP** — only if the four above aren't enough.
 
-Presenta el resultado como indicador direccional, no como conclusión. "Señal de que X" en vez de "queda demostrado que X".
+## Step 3 — Design the concrete test
 
-## Salida esperada
+```
+Method chosen: [one of the 5]
+With whom: [real operating partner / end user / sales team]
+What it measures exactly: [the metric]
+Success threshold: [number]
+Timeframe: [days]
+Cost (time/money): [estimate]
+```
 
-La hipótesis falsable + el método elegido con su umbral. Tres líneas. Esto va dentro del spec, en la sección "cómo se valida".
+## Golden rule
 
-## Cómo se conecta con el resto
+If the validation requires more engineering effort than building the whole feature, you're validating wrong. Step down one rung on the list of methods.
 
-Recibe de `write-spec` (la sección "cómo se valida", escrita en su primera pasada) y de `build-prototype` (reordenado 2026-09-17: corre justo después del prototipo de baja fidelidad, así que valida contra el flujo real que ya existe, no solo contra una hipótesis en papel). Si el método elegido involucra hablar con personas reales (entrevista, concierge, prueba de humo con seguimiento), sigue con `human-validation` para el guion de ejecución.
+## With small datasets
 
-## No está completo si...
+Present the result as a directional indicator, not as a conclusion. "Signal that X" instead of "X is proven."
 
-- No está completo si la hipótesis no es falsable, es decir, no dice qué la mataría.
-- No está completo si se eligió un método sin antes descartar los más baratos de la lista.
-- No está completo si falta el umbral numérico de éxito.
+## Expected output
+
+The falsifiable hypothesis + the chosen method with its threshold. Three lines. This goes inside the spec, in the "how it's validated" section.
+
+## How it connects with the rest
+
+Receives from `write-spec` (the "how it's validated" section, written in its first pass) and from `build-prototype` (reordered 2026-09-17: now runs right after the low-fidelity prototype, so it validates against the real flow that already exists, not just a hypothesis on paper). If the chosen method involves talking to real people (interview, concierge, smoke test with follow-up), follow with `human-validation` for the execution script.
+
+## Not complete if...
+
+- Not complete if the hypothesis isn't falsifiable, meaning it doesn't say what would kill it.
+- Not complete if a method was chosen without first ruling out the cheaper ones on the list.
+- Not complete if the numeric success threshold is missing.

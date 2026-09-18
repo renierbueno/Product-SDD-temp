@@ -1,25 +1,25 @@
 ---
 name: prioritize-roadmap
-description: Usar cuando hay varias opciones sobre la mesa (varias verticales, varios formatos de monetización, varias features) y hay que decidir el orden. Produce una priorización con criterio explícito y una recomendación de una línea, no un debate abierto.
+description: Use when there are several options on the table (several verticals, several monetization formats, several features) and you need to decide the order. Produces a prioritization with an explicit criterion and a one-line recommendation, not an open debate.
 ---
 
-# Priorizar el roadmap de expansión
+# Prioritize the expansion roadmap
 
-Objetivo: ordenar opciones con un criterio comunicado, no con intuición. El criterio es tan importante como el resultado.
+Goal: order options with a communicated criterion, not with intuition. The criterion matters as much as the result.
 
-## Cuándo usarla
+## When to use it
 
-- Hay varias verticales, formatos o features sobre la mesa y hay que decidir el orden.
-- Alguien pide "prioriza esto" sin dar un criterio, y hace falta declarar uno antes de puntuar.
-- Hace falta una recomendación cerrada, no un debate abierto.
+- There are several verticals, formats, or features on the table and you need to decide the order.
+- Someone asks to "prioritize this" without giving a criterion, and one needs to be stated before scoring.
+- A closed recommendation is needed, not an open debate.
 
-## Paso 0 — Fija el criterio antes de puntuar
+## Step 0 — Fix the criterion before scoring
 
-Pregunta o declara: ¿priorizamos por impacto en ingresos, por velocidad de entrega, o por reducción de riesgo de mantenimiento de plataforma? Escríbelo arriba de todo. Cambiar el criterio cambia el orden, así que se decide primero.
+Ask or state: are we prioritizing by revenue impact, by delivery speed, or by reducing platform-maintenance risk? Write it above everything else. Changing the criterion changes the order, so it gets decided first.
 
-## Paso 1 — RICE (o el marco que aplique)
+## Step 1 — RICE (or whichever framework applies)
 
-| Opción | Reach | Impact (1-3) | Confidence (%) | Effort (pers-sem) | Score |
+| Option | Reach | Impact (1-3) | Confidence (%) | Effort (person-weeks) | Score |
 |---|---|---|---|---|---|
 | A | | | | | |
 | B | | | | | |
@@ -27,36 +27,36 @@ Pregunta o declara: ¿priorizamos por impacto en ingresos, por velocidad de entr
 
 Score = (Reach × Impact × Confidence) / Effort.
 
-Di en voz alta el supuesto de cada celda. Con poca información, marca la Confidence baja en vez de inventar Reach.
+Say the assumption behind each cell out loud. With little information, mark Confidence low instead of inventing Reach.
 
-## Variante: si el criterio es riesgo de mantenimiento
+## Variant: if the criterion is maintenance risk
 
-Cuando el criterio dominante es no romper la plataforma, sustituye Impact por "reutilización de plataforma":
+When the dominant criterion is not breaking the platform, replace Impact with "platform reuse":
 
-| Opción | % reutiliza la plataforma | Builds específicos que exige | Deuda de mantenimiento | Prioridad |
+| Option | % reuses the platform | Specific builds required | Maintenance debt | Priority |
 |---|---|---|---|---|
 
-Lo que más reutiliza y menos builds únicos exige sube, aunque su impacto comercial no sea el mayor. Esto respeta el principio de no crear un mosaico de builds inmantenibles.
+Whatever reuses the most and requires the fewest one-off builds rises, even if its commercial impact isn't the biggest. This respects the principle of not creating an unmaintainable mosaic of builds.
 
-## Paso 2 — Recomendación
+## Step 2 — Recommendation
 
 ```
-Primero: [opción] porque [criterio].
-Segundo: [opción].
-No ahora: [opción] porque [razón, normalmente riesgo o effort desproporcionado].
-Supuesto que más movería este orden si cambia: [uno].
+First: [option] because [criterion].
+Second: [option].
+Not now: [option] because [reason, usually disproportionate risk or effort].
+Assumption that would move this order the most if it changed: [one].
 ```
 
-## Salida esperada
+## Expected output
 
-Tabla + tres líneas de recomendación cerrada. Nunca dejes la decisión abierta "para discutir"; da tu recomendación y di qué la cambiaría.
+Table + three lines of closed recommendation. Never leave the decision open "to discuss"; give your recommendation and say what would change it.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Recibe de `business-case` o `evaluate-vertical` cuando ya hay varias opciones evaluadas por separado. Sigue con `write-spec` para la opción que queda primero.
+Receives from `business-case` or `evaluate-vertical` when several options have already been evaluated separately. Follow with `write-spec` for the option that comes out first.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si el criterio no se declaró antes de puntuar.
-- No está completo si alguna celda de Confidence está inventada en vez de marcada baja por falta de información.
-- No está completo si la recomendación queda abierta "para discutir" en vez de cerrada.
+- Not complete if the criterion wasn't stated before scoring.
+- Not complete if any Confidence cell is invented instead of marked low for lack of information.
+- Not complete if the recommendation is left open "to discuss" instead of closed.

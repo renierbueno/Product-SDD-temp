@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill write-spec sobre una feature o capacidad ya decidida
-argument-hint: [feature o capacidad a especificar]
+description: Invokes the write-spec skill on an already-decided feature or capability
+argument-hint: [feature or capability to specify]
 ---
 
 # /spec
 
-Invoca la skill `write-spec` (usa la tool Skill con skill: "write-spec") para esta feature o capacidad:
+Invoke the `write-spec` skill (use the Skill tool with skill: "write-spec") for this feature or capability:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/write-spec/SKILL.md`: rellena la plantilla, criterios de aceptación en formato EARS, fuera de alcance explícito, y entrega la salida esperada de esa skill. El PM es dueño de este comando; el `/plan` que sale del spec lo ejecuta ingeniería.
+Follow the full process in `ai-specs/skills/write-spec/SKILL.md`: fill in the template, acceptance criteria in EARS format, explicit out of scope, and deliver that skill's expected output. The PM owns this command; the `/plan` that comes out of the spec is executed by engineering.

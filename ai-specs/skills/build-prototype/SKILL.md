@@ -1,121 +1,121 @@
 ---
 name: build-prototype
-description: Usar para generar un prototipo funcional (HTML/React de un solo archivo) que muestra un flujo en vez de describirlo. Sirve para validar UX y alcance antes de comprometer ingeniería, y para mostrar algo tangible en vez de describirlo en una reunión. Lee los docs de contexto que aplican antes de inventar nada, identifica el momento pico y el cierre antes de construir, y se revisa contra un piso de usabilidad y accesibilidad real, no solo "funciona".
+description: Use to generate a functional prototype (single-file HTML/React) that shows a flow instead of describing it. Used to validate UX and scope before committing engineering, and to show something tangible instead of describing it in a meeting. Reads the applicable context docs before inventing anything, identifies the peak moment and the close before building, and gets checked against a real usability and accessibility floor, not just "it works."
 ---
 
-# Construir un prototipo con IA
+# Build a prototype with AI
 
-Objetivo: mostrar el flujo, no contarlo. Un prototipo que no funciona de verdad pero deja ver las decisiones de UX y de alcance que tomaste, hecho por ti en minutos — y que se siente como el producto de verdad, no como una maqueta genérica.
+Goal: show the flow, don't tell it. A prototype that doesn't really work but reveals the UX and scope decisions you made, built by you in minutes — and that feels like the real product, not a generic mockup.
 
-## Cuándo usarla
+## When to use it
 
-- Te piden un feature de producto y quieres enseñar cómo se vería.
-- Necesitas validar un flujo con un usuario sin esperar a ingeniería.
-- Quieres alinear a Comercial o Dirección sobre el alcance antes de comprometer ingeniería.
+- You're asked for a product feature and want to show what it would look like.
+- You need to validate a flow with a user without waiting for engineering.
+- You want to align Commercial or Leadership on scope before committing engineering.
 
-**Esto valida UN flujo, no es el diseño final de todo el producto.** Un prototipo — aunque sea de alta fidelidad — es una herramienta de validación rápida y desechable, no el inventario completo y definitivo de cada pantalla/estado real (verificado 2026-09-17, señal MEDIA-FUERTE: incluso dentro de un mismo rol de diseño, "mockup de alta fidelidad" y "prototipo" son entregables distintos). Cuando ya se validó el flujo y toca producir el diseño completo de todas las pantallas reales para pasar a ingeniería, eso es `finalize-product-design` (`/finalize-design`), no más prototipos uno por uno.
+**This validates ONE flow, it's not the final design of the whole product.** A prototype — even a high-fidelity one — is a fast, disposable validation tool, not the complete and definitive inventory of every real screen/state (verified 2026-09-17, MEDIUM-STRONG signal: even within the same design role, "high-fidelity mockup" and "prototype" are listed as distinct deliverables). Once the flow is validated and it's time to produce the complete design of every real screen for handoff to engineering, that's `finalize-product-design` (`/finalize-design`), not more one-off prototypes.
 
-**Fidelidad, por defecto BAJA.** Sin que te lo pidan explícitamente, este prototipo es de baja fidelidad: gris/neutro en paleta y tipografía, pero con contenido real y voz real (ver Insumos abajo) — "baja fidelidad" nunca significa contenido genérico, solo significa sin identidad visual. No esperes a que exista un sistema de diseño — el orden estándar de la industria es al revés (investigación → flujo en baja fidelidad → diseño visual en alta fidelidad, verificado 2026-09-17, NN/g y guías de proceso UX, señal FUERTE). Solo pasa a ALTA fidelidad si te lo piden explícitamente, y en ese caso lee `docs/doc_design_system.md` primero — si no existe, dilo y sugiere `establish-design-system` (`/design-system`) antes de inventar una paleta.
+**Fidelity, LOW by default.** Unless explicitly asked, this prototype is low fidelity: gray/neutral palette and typography, but with real content and real voice (see Inputs below) — "low fidelity" never means generic content, it only means no visual identity. Don't wait for a design system to exist — the standard industry order is the reverse (research → low-fidelity flow → high-fidelity visual design, verified 2026-09-17, NN/g and UX process guides, STRONG signal). Only move to HIGH fidelity if explicitly asked, and in that case read `docs/doc_design_system.md` first — if it doesn't exist, say so and suggest `establish-design-system` (`/design-system`) before inventing a palette.
 
-No la uses para decidir o iterar la identidad visual en sí (paleta, tipografía, look-and-feel) en NINGUNA fidelidad — eso es siempre `establish-design-system` (`/design-system`). Si la conversación empieza a girar en torno a si algo "se siente diferenciado" o a probar paletas, para y muévela ahí. La distinción visual (siempre neutra en baja fidelidad) es la única cosa que la fidelidad afecta — el contenido, la voz, y los mecanismos estructurales que ya se validaron NO se degradan solo por ser baja fidelidad.
+Don't use this to decide or iterate on the visual identity itself (palette, typography, look-and-feel) at ANY fidelity — that's always `establish-design-system` (`/design-system`). If the conversation starts circling around whether something "feels differentiated" or testing palettes, stop and move it there. The visual distinction (always neutral at low fidelity) is the only thing fidelity affects — content, voice, and structural mechanisms that are already validated do NOT degrade just because it's low fidelity.
 
-## Insumos (lee esto antes de inventar nada)
+## Inputs (read this before inventing anything)
 
-Antes de construir, lee los docs de contexto que aplican — cada uno alimenta algo distinto, y cada uno evita un tipo de invención:
+Before building, read the context docs that apply — each one feeds something different, and each one prevents a type of invention:
 
-- **`docs/doc_company_context.md`** — quién es el usuario/operador real, qué hechos reales existen ya (contenido, cifras, casos). Úsalo en vez de inventar quién es la audiencia o qué dice el producto.
-- **`docs/doc_market_research.md`** — cómo se comporta de verdad esta audiencia en este tipo de contexto (velocidad de lectura, canal de llegada, atención esperada). Úsalo para decidir qué tan rápido tiene que "aterrizar" el prototipo, no lo asumas.
-- **`docs/doc_open_questions.md`** — qué NO está confirmado todavía. Si el prototipo necesita una respuesta que vive aquí, no la inventes: dilo explícitamente en el prototipo o en tu respuesta ("esto asume X, sin confirmar — ver doc_open_questions.md").
-- **`docs/doc_design_system.md`** — identidad visual fijada, solo si el prototipo es de alta fidelidad (ver arriba).
-- **`docs/doc_voice.md`** — voz y copy fijados, si existe. Úsalo tal cual para cualquier headline/copy que ya esté fijado ahí; no lo reescribas. Si el copy que hace falta no está fijado todavía, dilo y sugiere `lock-content-voice` (`/voice`) en vez de escribir copy nuevo al vuelo — mismo trato que el sistema de diseño con color.
+- **`docs/doc_company_context.md`** — who the real user/operator is, what real facts already exist (content, figures, cases). Use it instead of inventing who the audience is or what the product says.
+- **`docs/doc_market_research.md`** — how this audience actually behaves in this type of context (reading speed, arrival channel, expected attention). Use it to decide how fast the prototype has to "land," don't assume it.
+- **`docs/doc_open_questions.md`** — what's NOT confirmed yet. If the prototype needs an answer that lives here, don't invent it: state it explicitly in the prototype or in your response ("this assumes X, unconfirmed — see doc_open_questions.md").
+- **`docs/doc_design_system.md`** — locked visual identity, only if the prototype is high fidelity (see above).
+- **`docs/doc_voice.md`** — locked voice and copy, if it exists. Use it as-is for any headline/copy that's already locked there; don't rewrite it. If the copy you need isn't locked yet, say so and suggest `lock-content-voice` (`/voice`) instead of writing new copy on the fly — same treatment as the design system for color.
 
-**Regla de contenido: real primero, inventado solo si falta.** Todo dato, cifra o texto que ya existe en estos docs (o en el content-bank/fuente de verdad del proyecto) se usa tal cual — nunca genérico, nunca placeholder. Solo se inventa lo que genuinamente no está cubierto, y en ese caso se marca como tal (mismo criterio [CONFIRMADO]/[SUPUESTO] que el resto del harness), nunca se presenta como si fuera un hecho real. Esto no es solo higiene de datos — contenido real (no lorem ipsum, no copy genérico) es lo que hace que un prototipo dé retroalimentación útil en vez de una reacción vacía a texto de relleno.
+**Content rule: real first, invented only if missing.** Any data, figure, or text that already exists in these docs (or in the project's content-bank/source of truth) gets used as-is — never generic, never a placeholder. Only invent what's genuinely not covered, and in that case mark it as such (same [CONFIRMED]/[ASSUMPTION] criteria as the rest of the harness), never present it as if it were a real fact. This isn't just data hygiene — real content (no lorem ipsum, no generic filler copy) is what makes a prototype give useful feedback instead of an empty reaction to filler text.
 
-## El momento pico y el cierre (antes de construir)
+## The peak moment and the close (before building)
 
-Antes de dibujar nada, identifica dos momentos concretos del flujo — no los trates como una lista plana de pantallas igual de importantes:
+Before drawing anything, identify two concrete moments in the flow — don't treat them as a flat list of equally important screens:
 
-- **El pico**: el momento del flujo que más va a pesar en cómo alguien recuerda y juzga la experiencia completa (la prueba más fuerte, el resultado más sorprendente, el paso donde el valor real se hace obvio).
-- **El cierre**: la última pantalla o acción antes de que la persona decida seguir o irse.
+- **The peak**: the moment in the flow that will weigh most in how someone remembers and judges the whole experience (the strongest proof, the most surprising result, the step where the real value becomes obvious).
+- **The close**: the last screen or action before the person decides to continue or leave.
 
-Diséñalos con más cuidado que el resto — la Peak-End Rule (Yablonski, *Laws of UX*) dice que la gente juzga una experiencia por su pico y su final, no por el promedio de todos los pasos. Un prototipo que trata sus cinco pantallas como igual de importantes está dejando esto sobre la mesa. Dilo explícitamente en tu respuesta: "el pico de este flujo es X, el cierre es Y" — no lo dejes implícito.
+Design them with more care than the rest — the Peak-End Rule (Yablonski, *Laws of UX*) says people judge an experience by its peak and its ending, not by the average of every step. A prototype that treats its five screens as equally important is leaving this on the table. Say it explicitly in your response: "this flow's peak is X, the close is Y" — don't leave it implicit.
 
-## Cómo pedirlo al copiloto
+## How to ask the copilot for it
 
-Dale contexto en este orden:
+Give it context in this order:
 
 ```
-Construye un artifact [HTML / React de un solo archivo] que muestre:
-- Pantalla: [ej. el terminal de pago pidiendo email tras una compra]
-- El pico y el cierre de este flujo: [cuáles son, antes de construir]
-- Estados a mostrar: [feliz, error, borde]
-- Datos: [reales de los docs de contexto primero; lo inventado, marcado como tal]
-- Restricción: sin backend, todo en estado local, sin librerías de storage del navegador
-- Marca: por defecto colores neutros (baja fidelidad). Si es alta fidelidad, lee `docs/doc_design_system.md` y úsalo tal cual, no lo reinventes; si ese doc no existe todavía, dilo y sugiere `/design-system` en vez de improvisar uno.
+Build an artifact [single-file HTML / React] that shows:
+- Screen: [e.g. the payment terminal asking for an email after a purchase]
+- The peak and the close of this flow: [which ones, before building]
+- States to show: [happy, error, edge]
+- Data: [real, from the context docs first; anything invented, marked as such]
+- Constraint: no backend, everything in local state, no browser storage libraries
+- Brand: neutral colors by default (low fidelity). If high fidelity, read `docs/doc_design_system.md` and use it as-is, don't reinvent it; if that doc doesn't exist yet, say so and suggest `/design-system` instead of improvising one.
 ```
 
-## Qué mostrar, según el problema
+## What to show, by problem type
 
-- **Captación post-transacción**: pantalla tras completar una acción con un campo de contacto + un gancho de valor (cashback, garantía, contenido). Muestra el trade-off: fricción vs. captación.
-- **Dashboard de campaña/operación**: vista de backoffice donde alguien crea o gestiona algo (formato, objetivo, presupuesto, reporte). Muestra el ciclo de vida completo.
-- **Feature de vertical nueva**: la pantalla clave del flujo del usuario en ese vertical.
+- **Post-transaction capture**: a screen after completing an action with a contact field + a value hook (cashback, warranty, content). Shows the trade-off: friction vs. capture.
+- **Campaign/operations dashboard**: a backoffice view where someone creates or manages something (format, goal, budget, report). Shows the full lifecycle.
+- **New-vertical feature**: the key screen in that vertical's user flow.
 
-## Las leyes de UX que aplican siempre (Yablonski, *Laws of UX*)
+## The UX laws that always apply (Yablonski, *Laws of UX*)
 
-No es una lista para citar, es para aplicar en cada decisión de layout/contenido:
+Not a list to cite, it's meant to be applied in every layout/content decision:
 
-- **Ley de Jakob**: la gente espera que lo nuevo funcione como lo que ya conoce. Navegación, formularios, patrones básicos → convencionales. Gasta el presupuesto de "diferente" solo en lo que de verdad es el diferenciador, no en reinventar un menú.
-- **Ley de Hick**: más opciones = decisión más lenta. Menos ítems de navegación, un CTA claro, no varios compitiendo.
-- **Regla del pico y el final (Peak-End)**: ver la sección de arriba — se identifica ANTES de construir, no después.
-- **Efecto estético-usabilidad**: una interfaz que se ve mejor se percibe como más usable, y la primera impresión se forma en milisegundos y rara vez cambia después (ver `doc_market_research.md` si el proyecto tiene una cifra real de esto para su audiencia). Esto es la razón funcional, no solo estética, de por qué la fidelidad alta importa cuando toca usarla — no es vanidad visual.
+- **Jakob's Law**: people expect something new to work like what they already know. Navigation, forms, basic patterns → conventional. Spend the "different" budget only on what's genuinely the differentiator, not on reinventing a menu.
+- **Hick's Law**: more options = slower decisions. Fewer nav items, one clear CTA, not several competing.
+- **Peak-End Rule**: see the section above — identified BEFORE building, not after.
+- **Aesthetic-usability effect**: an interface that looks better is perceived as more usable, and the first impression forms in milliseconds and rarely changes afterward (see `doc_market_research.md` if the project has a real figure on this for its audience). This is the functional reason, not just an aesthetic one, high fidelity matters when it's time to use it — it's not visual vanity.
 
-## Checklist de usabilidad (Nielsen, antes de dar por terminado)
+## Usability checklist (Nielsen, before calling it done)
 
-Repásalo contra el prototipo, no solo contra el camino feliz:
+Check it against the prototype, not just against the happy path:
 
-1. Visibilidad del estado del sistema — ¿se nota qué está pasando en cada momento?
-2. Coincidencia con el mundo real — ¿el lenguaje y los conceptos son los que la audiencia ya usa?
-3. Control y libertad del usuario — ¿hay una salida clara de cualquier acción no deseada?
-4. Consistencia y estándares — ¿una misma acción se comporta igual en todo el prototipo?
-5. Prevención de errores — ¿se puede evitar el error antes de que pase, no solo mostrarlo después?
-6. Reconocer en vez de recordar — ¿la información necesaria está visible, o hay que memorizarla?
-7. Flexibilidad y eficiencia — ¿funciona igual de bien para alguien que lo ve por primera vez y para alguien que vuelve?
-8. Diseño estético y minimalista — ¿hay algo en pantalla que no sirve al objetivo principal?
-9. Ayudar a reconocer, diagnosticar y recuperarse de errores — ¿el mensaje de error dice qué pasó y qué hacer, en lenguaje plano?
-10. Ayuda y documentación — si hace falta explicar algo, ¿está donde se necesita, no escondido?
+1. Visibility of system status — is it clear what's happening at each moment?
+2. Match with the real world — is the language and are the concepts the ones the audience already uses?
+3. User control and freedom — is there a clear way out of any unwanted action?
+4. Consistency and standards — does the same action behave the same way throughout the prototype?
+5. Error prevention — can the error be avoided before it happens, not just shown after?
+6. Recognition over recall — is the needed information visible, or does it have to be memorized?
+7. Flexibility and efficiency — does it work equally well for a first-time viewer and a returning one?
+8. Aesthetic and minimalist design — is there anything on screen that doesn't serve the main goal?
+9. Help recognizing, diagnosing, and recovering from errors — does the error message say what happened and what to do, in plain language?
+10. Help and documentation — if something needs explaining, is it where it's needed, not hidden away?
 
-## Piso de accesibilidad (no negociable, en cualquier fidelidad)
+## Accessibility floor (non-negotiable, at any fidelity)
 
-- HTML semántico real (`<button>`, `<a>`, `<label>` con su `for`) en vez de `<div>`/`<span>` con estilo de botón — la accesibilidad nativa del navegador no se reconstruye a mano si no hace falta.
-- Contraste de texto mínimo 4.5:1 (3:1 para texto grande) — se cumple aunque sea baja fidelidad en gris.
-- Todo funcional por teclado: Tab/Shift+Tab navega, Enter/Espacio activa, Escape cierra overlays. Nunca un foco atrapado.
-- Estado de foco visible siempre (mínimo 3:1 de contraste entre foco y no-foco) — nunca `outline: none` sin un reemplazo real.
+- Real semantic HTML (`<button>`, `<a>`, `<label>` with its `for`) instead of `<div>`/`<span>` styled as a button — the browser's native accessibility doesn't need to be rebuilt by hand when it doesn't have to be.
+- Minimum text contrast 4.5:1 (3:1 for large text) — holds even at low fidelity in gray.
+- Everything works by keyboard: Tab/Shift+Tab navigates, Enter/Space activates, Escape closes overlays. Never a trapped focus.
+- Visible focus state always (minimum 3:1 contrast between focus and non-focus) — never `outline: none` without a real replacement.
 
-## Reglas
+## Rules
 
-- Un solo archivo, sin dependencias externas pesadas.
-- Nada de localStorage/sessionStorage (no funciona en artifacts): usa estado en memoria.
-- Contenido real primero (ver Insumos); lo inventado, marcado como tal — nunca lorem ipsum, nunca copy genérico de relleno.
-- Que se vea el estado de error y el de borde, no solo el camino feliz. Ahí es donde se esconden los problemas reales de alcance.
+- A single file, no heavy external dependencies.
+- No localStorage/sessionStorage (doesn't work in artifacts): use in-memory state.
+- Real content first (see Inputs); anything invented, marked as such — never lorem ipsum, never generic filler copy.
+- Show the error and edge states, not just the happy path. That's where the real scope problems hide.
 
-## Por qué prototipar antes de pedírselo a ingeniería
+## Why prototype before asking engineering
 
-Prototipar esto antes de pedírselo a ingeniería descarta problemas obvios de UX o de alcance. Así el PM no es el cuello de botella, e ingeniería recibe algo ya validado.
+Prototyping this before asking engineering rules out obvious UX or scope problems. That way the PM isn't the bottleneck, and engineering receives something already validated.
 
-## Salida esperada
+## Expected output
 
-Un artifact que abre y deja navegar el flujo, con el pico y el cierre nombrados explícitamente en tu respuesta, no solo construidos.
+An artifact that opens and lets you navigate the flow, with the peak and the close named explicitly in your response, not just built into it.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Se usa junto a `write-spec`, no lo reemplaza: el spec (en su primera pasada, borrador) origina el prototipo; el prototipo es la validación de UX y alcance antes de pasarlo a ingeniería. Reordenado 2026-09-17: corre justo después del spec-borrador, ANTES de `validate-fast`/`human-validation` y antes de `establish-design-system`/`lock-content-voice` — el prototipo de baja fidelidad es la validación barata que decide si vale la pena invertir en las siguientes. En baja fidelidad no depende de `establish-design-system` en absoluto. En alta fidelidad (una vez el flujo ya se validó), lee el resultado de `establish-design-system` (`docs/doc_design_system.md`) — si esa skill no ha corrido todavía, esa es la anterior a invocar, no una variante de esta. Una vez el flujo está validado y, si aplica, la identidad/voz están fijadas, `finalize-product-design` es el siguiente paso para el inventario completo — no sigas corriendo más prototipos de alta fidelidad como sustituto de eso.
+Used alongside `write-spec`, doesn't replace it: the spec (in its first pass, the draft) originates the prototype; the prototype is the UX and scope validation before handing off to engineering. Reordered 2026-09-17: runs right after the spec draft, BEFORE `validate-fast`/`human-validation` and before `establish-design-system`/`lock-content-voice` — the low-fidelity prototype is the cheap validation that decides whether it's worth investing in the next ones. At low fidelity it doesn't depend on `establish-design-system` at all. At high fidelity (once the flow is already validated), it reads `establish-design-system`'s result (`docs/doc_design_system.md`) — if that skill hasn't run yet, that's the one to invoke first, not a variant of this one. Once the flow is validated and, if applicable, identity/voice are locked, `finalize-product-design` is the next step for the complete inventory — don't keep running more high-fidelity prototypes as a substitute for that.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si solo se muestra el camino feliz, sin estado de error ni de borde.
-- No está completo si no va acompañado del spec que lo originó.
-- No está completo si usa localStorage/sessionStorage o depende de un backend real.
-- No está completo si tuvo que iterar sobre paleta/tipografía/identidad visual más de una vez dentro de esta skill, en cualquier fidelidad — esa es la señal de que la conversación se movió a trabajo de `establish-design-system` y debería continuar ahí, no aquí.
-- No está completo si no leyó los docs de contexto que aplican antes de inventar datos, o si presentó contenido inventado como si fuera un hecho real sin marcarlo.
-- No está completo si no nombró explícitamente el momento pico y el cierre del flujo antes de construir.
-- No está completo si viola alguno de los 10 puntos del checklist de Nielsen o del piso de accesibilidad — ambos son parte de "terminado", no un extra opcional.
+- Not complete if only the happy path is shown, with no error or edge state.
+- Not complete if it doesn't come with the spec that originated it.
+- Not complete if it uses localStorage/sessionStorage or depends on a real backend.
+- Not complete if it had to iterate on palette/typography/visual identity more than once inside this skill, at any fidelity — that's the signal the conversation moved into `establish-design-system` work and should continue there, not here.
+- Not complete if it didn't read the applicable context docs before inventing data, or if it presented invented content as if it were a real fact without marking it.
+- Not complete if it didn't explicitly name the flow's peak moment and close before building.
+- Not complete if it violates any of the 10 points of the Nielsen checklist or the accessibility floor — both are part of "done," not an optional extra.

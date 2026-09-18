@@ -1,68 +1,68 @@
 ---
 name: finalize-product-design
-description: Usar cuando el flujo crítico ya está validado (build-prototype), la identidad visual ya está fijada (establish-design-system), y la voz/copy ya está fijada (lock-content-voice), y toca producir el diseño completo y definitivo de TODAS las pantallas y estados reales del producto — no una validación rápida de un flujo, sino la referencia exhaustiva que ingeniería va a construir. No requiere que cada pantalla tenga su propio prototipo (eso no es práctica estándar), pero cada pantalla que no lo tuvo debe justificar qué patrón ya validado reutiliza, llevar el porqué real, y pasar un chequeo de viabilidad antes de marcarse FINAL.
+description: Use when the critical flow is already validated (build-prototype), the visual identity is already locked (establish-design-system), and the voice/copy is already locked (lock-content-voice), and it's time to produce the complete and final design of EVERY real screen and state in the product — not a fast validation of one flow, but the exhaustive reference engineering will build. Doesn't require every screen to have had its own prototype (that's not standard practice), but every screen that didn't must justify which already-validated pattern it reuses, carry the real why, and pass a viability check before being marked FINAL.
 ---
 
-# Finalizar el diseño del producto
+# Finalize the product design
 
-Objetivo: producir el diseño completo y pulido de cada pantalla y cada estado real del producto — el artefacto definitivo, no otra validación. Investigación real (2026-09-17, señal MEDIA-FUERTE): incluso dentro de un solo rol de diseño, "mockup de alta fidelidad" y "prototipo" se listan como entregables DISTINTOS — un prototipo es una herramienta de validación (rápida, desechable, cubre un flujo), un mockup/diseño final es la referencia completa que ingeniería construye.
+Goal: produce the complete, polished design of every real screen and every real state in the product — the definitive artifact, not another validation. Real research (2026-09-17, MEDIUM-STRONG signal): even within a single design role, "high-fidelity mockup" and "prototype" are listed as DISTINCT deliverables — a prototype is a validation tool (fast, disposable, covers one flow), a final mockup/design is the complete reference engineering builds from.
 
-## Cuándo usarla
+## When to use it
 
-- El flujo crítico ya se validó (`build-prototype`, baja o alta fidelidad), la identidad visual ya está `FIJADO` en `docs/doc_design_system.md`, y la voz/copy ya está `FIJADO` en `docs/doc_voice.md` (si el proyecto tiene esa skill corrida — no todo proyecto la necesita).
-- Hay un inventario real de pantallas/estados que necesitan diseño final, no solo el flujo de ejemplo que ya se prototipó.
-- Esto está a punto de pasar a `/plan` (ingeniería) y hace falta la referencia definitiva, no "el prototipo de la home nada más".
+- The critical flow is already validated (`build-prototype`, low or high fidelity), the visual identity is already `LOCKED` in `docs/doc_design_system.md`, and the voice/copy is already `LOCKED` in `docs/doc_voice.md` (if the project ran that skill — not every project needs it).
+- There's a real inventory of screens/states that need final design, not just the example flow that was already prototyped.
+- This is about to move to `/plan` (engineering) and the definitive reference is needed, not "just the home page's prototype."
 
-**No hace falta prototipar cada pantalla una por una — eso no es práctica estándar (verificado 2026-09-17, señal FUERTE: la recomendación real es prototipar solo los flujos críticos/de riesgo, 5-15 pantallas según complejidad, no el inventario completo).** La coherencia del resto viene de reutilizar los mismos componentes y patrones ya validados, nunca de inventar algo nuevo sin pasar por `build-prototype` primero. Por eso el Paso 2 de abajo exige nombrar el patrón reutilizado para cada pantalla que no tuvo su propio prototipo — si no se puede nombrar uno real, esa pantalla sí necesita pasar por `build-prototype` antes de entrar aquí.
+**You don't need to prototype every screen one by one — that's not standard practice (verified 2026-09-17, STRONG signal: the real recommendation is to prototype only the critical/risky flows, 5-15 screens depending on complexity, not the complete inventory).** The rest's consistency comes from reusing the same components and patterns already validated, never from inventing something new without going through `build-prototype` first. That's why Step 2 below requires naming the reused pattern for every screen that didn't have its own prototype — if a real one can't be named, that screen needs to go through `build-prototype` before entering here.
 
-## Qué NO es esta skill
+## What this skill is NOT
 
-- **No reemplaza `build-prototype`.** La validación de flujo sigue pasando ahí primero, rápido y desechable, para los flujos críticos. Esta skill asume que esa validación ya ocurrió donde hacía falta.
-- **No decide identidad visual.** Aplica `docs/doc_design_system.md` exhaustivamente; no inventa paleta, tipografía, ni motivo de layout nuevo. Si hace falta una decisión de identidad que el sistema fijado no cubre, esa es señal de volver a `establish-design-system`, no de decidirla aquí.
-- **No es más iteración de "cómo se ve".** Para cuando esta skill corre, esa pregunta ya está cerrada. Esto es sobre COBERTURA (cada pantalla, cada estado real), no sobre más dirección.
-- **No inventa contenido.** El copy tiene que estar en su versión final (voz, posicionamiento, wording), fijado en `docs/doc_voice.md`, antes de entrar aquí — si no lo está, esa es `lock-content-voice` (`/voice`), no un hueco que se rellena al vuelo dentro de esta.
+- **Doesn't replace `build-prototype`.** Flow validation still happens there first, fast and disposable, for the critical flows. This skill assumes that validation already happened wherever it was needed.
+- **Doesn't decide visual identity.** Applies `docs/doc_design_system.md` exhaustively; doesn't invent a new palette, typography, or layout motif. If an identity decision is needed that the locked system doesn't cover, that's the signal to go back to `establish-design-system`, not to decide it here.
+- **Isn't more iteration on "how it looks."** By the time this skill runs, that question is already closed. This is about COVERAGE (every screen, every real state), not more direction.
+- **Doesn't invent content.** The copy has to be in its final version (voice, positioning, wording), locked in `docs/doc_voice.md`, before entering here — if it isn't, that's `lock-content-voice` (`/voice`), not a gap to fill on the fly inside this one.
 
-## Proceso
+## Process
 
-**Paso 1 — Inventario explícito, nada implícito.** Enumera cada pantalla y cada estado real del producto, no solo "la home". Ejemplo del nivel de detalle: no "página de casos", sino "Catálogo: 4 páginas de detalle (o una plantilla + 4 variantes de contenido), estado con imagen / estado solo-texto". Todo lo que no se diseñe en esta pasada se marca DIFERIDO con la razón, nunca se omite en silencio.
+**Step 1 — Explicit inventory, nothing implicit.** List every real screen and every real state in the product, not just "the home page." Example of the level of detail: not "listing page," but "Catalog: 4 detail pages (or a template + 4 content variants), state with image / text-only state." Anything not designed in this pass gets marked DEFERRED with the reason, never silently omitted.
 
-**Paso 2 — Para cada pantalla sin prototipo propio, nombra el patrón que reutiliza.** "Reutiliza la tarjeta de listado ya validada en `checkout-hifi-b`" es una justificación real; "se ve parecido" no lo es. Si no hay un patrón real que nombrar, esa pantalla no está lista para esta skill — vuelve a `build-prototype` primero.
+**Step 2 — For every screen with no prototype of its own, name the pattern it reuses.** "Reuses the listing card already validated in `checkout-hifi-b`" is a real justification; "looks similar" isn't. If there's no real pattern to name, that screen isn't ready for this skill — send it back to `build-prototype` first.
 
-**Paso 3 — Aplica el sistema fijado, no lo reinventes.** Cada pantalla reutiliza los mismos tokens/tipografía/motivo de `docs/doc_design_system.md`, y el copy de `docs/doc_voice.md` tal cual esté fijado ahí. Cero decisiones de identidad o de voz nuevas.
+**Step 3 — Apply the locked system, don't reinvent it.** Every screen reuses the same tokens/typography/motif from `docs/doc_design_system.md`, and the copy from `docs/doc_voice.md` exactly as locked there. Zero new identity or voice decisions.
 
-**Paso 4 — Cubre los estados reales de cada pantalla, no solo el camino feliz.** Mismo estándar que `build-prototype` (feliz + error + borde), pero ahora para el inventario completo, no un solo flujo.
+**Step 4 — Cover every screen's real states, not just the happy path.** Same standard as `build-prototype` (happy + error + edge), but now for the complete inventory, not a single flow.
 
-**Paso 5 — Di por qué existe cada pantalla, no solo qué contiene.** Una frase por pantalla: qué problema real del usuario resuelve, trazable al discovery/`doc_company_context.md` (verificado 2026-09-17: práctica real de equipos de diseño — el archivo de diseño lleva el problema y el porqué, no solo el visual, para que la decisión se pueda auditar después sin adivinar).
+**Step 5 — Say why each screen exists, not just what it contains.** One sentence per screen: what real user problem it solves, traceable back to discovery/`doc_company_context.md` (verified 2026-09-17: real design-team practice — the design file carries the problem and the why, not just the visual, so the decision can be audited later without guessing).
 
-**Paso 6 — Chequeo de viabilidad antes de fijar FINAL.** ¿Esta pantalla depende de algo que no existe todavía (un screenshot real, una integración, un dato)? Si sí, es DIFERIDA con esa razón explícita, nunca FINAL con un placeholder disfrazado (verificado 2026-09-17: práctica real — el handoff revisa viabilidad técnica, no solo precisión visual, antes de dar algo por terminado).
+**Step 6 — Viability check before locking FINAL.** Does this screen depend on something that doesn't exist yet (a real screenshot, an integration, a data point)? If so, it's DEFERRED with that explicit reason, never FINAL with a placeholder in disguise (verified 2026-09-17: real practice — handoff reviews technical viability, not just visual accuracy, before calling something done).
 
-## Salida esperada
+## Expected output
 
 ```
-Inventario de pantallas/estados: [lista completa, cada una FINAL o DIFERIDA + razón]
-Patrón reutilizado (si no tuvo prototipo propio): [cuál, y de dónde — nunca "se ve parecido"]
-Sistema aplicado: [confirma que viene de docs/doc_design_system.md, sin decisiones nuevas]
-Copy aplicado: [confirma que viene de docs/doc_voice.md, sin copy nuevo]
-Estados cubiertos por pantalla: [feliz / error / borde, por cada una FINAL]
-Por qué existe (por pantalla): [el problema real que resuelve, trazable al discovery]
-Viabilidad: [qué depende de algo que no existe todavía, y por eso quedó DIFERIDA]
-Qué queda fuera de esta pasada: [explícito, con razón — nunca silencioso]
+Screen/state inventory: [complete list, each one FINAL or DEFERRED + reason]
+Reused pattern (if it had no prototype of its own): [which one, and from where — never "looks similar"]
+System applied: [confirms it comes from docs/doc_design_system.md, no new decisions]
+Copy applied: [confirms it comes from docs/doc_voice.md, no new copy]
+States covered per screen: [happy / error / edge, for every FINAL one]
+Why it exists (per screen): [the real problem it solves, traceable to discovery]
+Viability: [what depends on something that doesn't exist yet, and why it stayed DEFERRED]
+What's out of this pass: [explicit, with a reason — never silent]
 ```
 
-Guarda el resultado (o el puntero a los artifacts reales) donde el proyecto guarde sus prototipos — mismo criterio que `build-prototype`.
+Save the result (or the pointer to the real artifacts) wherever the project keeps its prototypes — same criterion as `build-prototype`.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Recibe de `build-prototype` (flujos críticos ya validados), `establish-design-system` (identidad ya fijada, `docs/doc_design_system.md`), y `lock-content-voice` (copy ya cerrado, `docs/doc_voice.md`). Sigue con la segunda pasada de `write-spec` (reordenado 2026-09-17): el spec se cierra aquí, con lo que realmente quedó finalizado, antes de pasar a `/plan` — no directamente de esta skill a `/plan`. `/plan` toma el spec ya cerrado como artefacto durable, y el inventario de esta skill como la referencia real que el agente `engineer` construye, no el prototipo de validación. Una vez construido de verdad, verificar que lo construido coincide con esto (Design QA) es un chequeo real y distinto que este harness todavía no tiene como skill propia — pendiente de decidir si hace falta una, no asumido ni resuelto aquí.
+Receives from `build-prototype` (critical flows already validated), `establish-design-system` (identity already locked, `docs/doc_design_system.md`), and `lock-content-voice` (copy already closed, `docs/doc_voice.md`). Follow with `write-spec`'s second pass (reordered 2026-09-17): the spec gets closed here, with what actually got finalized, before moving to `/plan` — not directly from this skill to `/plan`. `/plan` takes the already-closed spec as the durable artifact, and this skill's inventory as the real reference the `engineer` agent builds from, not the validation prototype. Once it's actually built, verifying that what got built matches this (Design QA) is a real, distinct check this harness doesn't have as its own skill yet — pending a decision on whether one's needed, not assumed or resolved here.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si el inventario de pantallas/estados no es explícito — cualquier cosa implícita o "sobreentendida" no cuenta.
-- No está completo si algo se dejó fuera sin decir explícitamente que está diferido y por qué.
-- No está completo si se tomó una decisión de identidad visual nueva dentro de esta skill — esa es señal de volver a `establish-design-system`.
-- No está completo si se escribió copy nuevo dentro de esta skill en vez de usar `docs/doc_voice.md` tal cual — esa es señal de volver a `lock-content-voice`.
-- No está completo si el contenido de alguna pantalla no está en su versión final.
-- No está completo si alguna pantalla marcada FINAL solo cubre el camino feliz.
-- No está completo si una pantalla sin prototipo propio no nombra un patrón real que reutiliza.
-- No está completo si alguna pantalla no dice qué problema real resuelve.
-- No está completo si algo se marcó FINAL sin pasar el chequeo de viabilidad.
+- Not complete if the screen/state inventory isn't explicit — anything implicit or "assumed understood" doesn't count.
+- Not complete if something was left out without explicitly saying it's deferred and why.
+- Not complete if a new visual-identity decision was made inside this skill — that's the signal to go back to `establish-design-system`.
+- Not complete if new copy was written inside this skill instead of using `docs/doc_voice.md` as-is — that's the signal to go back to `lock-content-voice`.
+- Not complete if any screen's content isn't in its final version.
+- Not complete if any screen marked FINAL only covers the happy path.
+- Not complete if a screen with no prototype of its own doesn't name a real pattern it reuses.
+- Not complete if any screen doesn't say what real problem it solves.
+- Not complete if something was marked FINAL without passing the viability check.

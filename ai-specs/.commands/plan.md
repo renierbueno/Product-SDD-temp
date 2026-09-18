@@ -1,12 +1,12 @@
 ---
-description: Toma un spec existente y produce el plan de implementación (agente engineer)
-argument-hint: [ruta al spec]
+description: Takes an existing spec and produces the implementation plan (engineer agent)
+argument-hint: [path to the spec]
 ---
 
 # /plan
 
-Adopta el rol `ai-specs/.agents/engineer.md` para esto, no el de PM. Toma el spec de abajo y produce el plan de implementación: qué toca de la plataforma existente, qué integraciones hacen falta, y el desglose en tasks pequeñas, una a una, sin saltarse fases. No reabras el problema ni renegocies los criterios de aceptación; si el spec tiene un hueco, señálalo como pregunta al PM.
+Adopt the `ai-specs/.agents/engineer.md` role for this, not the PM's. Take the spec below and produce the implementation plan: what it touches on the existing platform, what integrations are needed, and the breakdown into small tasks, one by one, without skipping phases. Don't reopen the problem or renegotiate the acceptance criteria; if the spec has a gap, flag it as a question for the PM.
 
 Spec: $ARGUMENTS
 
-Salida: plan + tasks.
+Output: plan + tasks.

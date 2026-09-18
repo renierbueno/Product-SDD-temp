@@ -1,62 +1,62 @@
 ---
 name: lock-content-voice
-description: Usar cuando hay que fijar (o revisar deliberadamente) la voz, el tono, y el copy real del producto — el equivalente de establish-design-system pero para palabras, no para color. Sin esto, el contenido se decide al vuelo dentro de build-prototype, la misma deriva que ya pasó con paleta y tipografía antes de que existiera establish-design-system. Produce un doc de voz fijado (principios accionables con ejemplos Do/Don't, no adjetivos sueltos) más el copy real de las piezas clave del sitio, cerrado, no una lista abierta de borradores.
+description: Use when it's time to lock (or deliberately revisit) the product's voice, tone, and real copy — the equivalent of establish-design-system but for words, not color. Without this, content gets decided on the fly inside build-prototype, the same drift that already happened with palette and typography before establish-design-system existed. Produces a locked voice doc (actionable principles with Do/Don't examples, not loose adjectives) plus the real, closed copy for the site's key pieces, not an open list of drafts.
 ---
 
-# Fijar la voz y el contenido
+# Lock the voice and content
 
-Objetivo: decidir UNA vez cómo suena el producto — y escribir el copy real de las piezas que bloquean el build — no redecidirlo cada vez que se construye un prototipo.
+Goal: decide ONE time how the product sounds — and write the real copy for the pieces blocking the build — not re-decide it every time a prototype gets built.
 
-## Cuándo usarla
+## When to use it
 
-- Hay contenido real pendiente (un headline vago, una sección que "no suena como yo", texto que todavía no está en su versión final) y bloquea marcar algo FINAL en `finalize-product-design`.
-- Alguien dice que algo "no suena humano" o "sí es esto no yo" — esa es la señal de que la conversación se salió de estructura/flujo y entró en voz. Párala y muévela aquí, no la seed dentro de `build-prototype`.
-- El producto tiene una voz real ya demostrada en otro lugar (una muestra de escritura real, un voice guide existente) que hay que heredar, no inventar desde cero.
+- There's real content pending (a vague headline, a section that "doesn't sound like me," text that isn't in its final version yet) and it's blocking marking something FINAL in `finalize-product-design`.
+- Someone says something "doesn't sound human" or "this is it, not me" — that's the signal the conversation left structure/flow and entered voice. Stop it and move it here, don't seed it inside `build-prototype`.
+- The product has a real voice already demonstrated somewhere else (a real writing sample, an existing voice guide) that needs inheriting, not inventing from scratch.
 
-## Qué NO es esta skill
+## What this skill is NOT
 
-- **No decide identidad visual.** Eso es `establish-design-system`. Esta skill decide palabras, no colores.
-- **No decide estructura ni flujo.** Eso ya pasó en `build-prototype`/`prioritize-roadmap`. Esta skill asume que la estructura ya está decidida y escribe el copy que va dentro de ella.
-- **No inventa hechos.** Todo dato, cifra o afirmación viene de las mismas fuentes de verdad que ya usa el resto del harness (`doc_company_context.md`, el content-bank del proyecto) — esta skill decide CÓMO se dice, nunca QUÉ se afirma.
-- **No es un ejercicio de adjetivos.** "Cálido, directo, cercano" no es una guía de voz — es una lista de deseos. La salida tiene que ser accionable: ejemplos reales Do/Don't, no atributos sueltos (verificado 2026-09-17, práctica real de content design: una guía de voz que no da ejemplos concretos no cambia cómo nadie escribe).
+- **Doesn't decide visual identity.** That's `establish-design-system`. This skill decides words, not colors.
+- **Doesn't decide structure or flow.** That already happened in `build-prototype`/`prioritize-roadmap`. This skill assumes the structure is already decided and writes the copy that goes inside it.
+- **Doesn't invent facts.** Any data, figure, or claim comes from the same sources of truth the rest of the harness already uses (`doc_company_context.md`, the project's content-bank) — this skill decides HOW it's said, never WHAT gets claimed.
+- **Isn't an adjective exercise.** "Warm, direct, approachable" isn't a voice guide — it's a wish list. The output has to be actionable: real Do/Don't examples, not loose attributes (verified 2026-09-17, real content-design practice: a voice guide with no concrete examples doesn't change how anyone writes).
 
-## Insumos (léelos antes de proponer nada)
+## Inputs (read these before proposing anything)
 
-- Cualquier muestra REAL de escritura del sujeto ya existente (un voice guide, un email real, una respuesta real a una pregunta) — la voz se hereda de ahí, no se inventa. Si no hay ninguna, decirlo explícitamente antes de proponer nada.
-- `docs/doc_company_context.md` — quién es la audiencia, qué ya sabe, qué registro necesita (ver discovery si existe una nota sobre esto).
-- El feedback real ya dado sobre contenido existente (qué se rechazó y por qué) — es la señal más fuerte de todas, más que cualquier plantilla.
+- Any REAL existing writing sample from the subject (a voice guide, a real email, a real answer to a question) — the voice gets inherited from there, not invented. If there's none, say so explicitly before proposing anything.
+- `docs/doc_company_context.md` — who the audience is, what they already know, what register is needed (check discovery for a note on this if one exists).
+- Real feedback already given on existing content (what got rejected and why) — this is the strongest signal of all, stronger than any template.
 
-## Proceso
+## Process
 
-**Paso 1 — Extrae la voz de muestras reales, no la inventes.** Lee el material de voz ya existente línea por línea. Identifica patrones concretos y repetibles: qué palabras evita, cómo abre una frase, cómo cierra, qué tan formal es, dónde mete humor seco vs. dónde no. Cada patrón tiene que señalar a una muestra real, no a una intuición sobre "cómo debería sonar".
+**Step 1 — Extract the voice from real samples, don't invent it.** Read the existing voice material line by line. Identify concrete, repeatable patterns: which words it avoids, how it opens a sentence, how it closes one, how formal it is, where it uses dry humor vs. where it doesn't. Every pattern has to point to a real sample, not to a gut feeling about "how it should sound."
 
-**Paso 2 — Convierte cada patrón en una regla Do/Don't con ejemplo.** "Directo" no es una regla. "No abre con una pregunta retórica; dice el hecho primero" con un ejemplo real al lado, sí lo es. Mínimo 5 reglas, cada una con un ejemplo Do y un ejemplo Don't tomado del feedback real ya dado (verificado 2026-09-17, señal FUERTE: una guía de voz sin ejemplos concretos por regla no logra que otros escriban distinto).
+**Step 2 — Turn each pattern into a Do/Don't rule with an example.** "Direct" isn't a rule. "Doesn't open with a rhetorical question; states the fact first" with a real example next to it, is. At least 5 rules, each with a Do example and a Don't example pulled from real feedback already given (verified 2026-09-17, STRONG signal: a voice guide with no concrete example per rule doesn't get others to write differently).
 
-**Paso 3 — Mapea tono por contexto, no un tono único para todo.** El mismo producto suena distinto en un headline que en un mensaje de error (verificado 2026-09-17, práctica estándar de content design: la voz es constante, el tono varía por escenario). Enumera los contextos reales del producto (headline, case study, mensaje de error, CTA, meta description) y qué cambia en cada uno.
+**Step 3 — Map tone by context, not one single tone for everything.** The same product sounds different in a headline than in an error message (verified 2026-09-17, standard content-design practice: voice stays constant, tone varies by scenario). List the product's real contexts (headline, case study, error message, CTA, meta description) and what changes in each one.
 
-**Paso 4 — Escribe el copy real de las piezas bloqueadas, cerrado.** No "aquí hay tres versiones del headline" indefinidamente — una decisión final por pieza, con las alternativas descartadas anotadas brevemente (qué se probó, por qué no). Cada pieza de copy tiene que trazarse a un hecho real (`doc_company_context.md`/content-bank) si afirma algo, nunca inventado.
+**Step 4 — Write the real copy for the blocked pieces, closed.** Not "here are three versions of the headline" indefinitely — one final decision per piece, with discarded alternatives briefly noted (what was tried, why not). Every piece of copy has to trace back to a real fact (`doc_company_context.md`/content-bank) if it claims something, never invented.
 
-## Salida esperada
+## Expected output
 
 ```
-Reglas de voz (Do/Don't, con ejemplo cada una): [mínimo 5]
-Tono por contexto: [headline / case study / error / CTA / meta — qué cambia en cada uno]
-Copy fijado — piezas bloqueadas: [cada headline/sección real, versión final, trazable a un hecho si afirma algo]
-Qué se descartó y por qué: [breve, por pieza]
-Estado: [FIJADO — con fecha — o EN PAUSA / EXPLORADO SIN CERRAR, nunca ambiguo]
+Voice rules (Do/Don't, with an example each): [minimum 5]
+Tone by context: [headline / case study / error / CTA / meta — what changes in each]
+Locked copy — blocked pieces: [every real headline/section, final version, traceable to a fact if it claims something]
+What got discarded and why: [brief, per piece]
+Status: [LOCKED — dated — or ON HOLD / EXPLORED NOT CLOSED, never ambiguous]
 ```
 
-Guarda el resultado completo en `docs/doc_voice.md`. Si el estado es EN PAUSA, dilo explícitamente.
+Save the complete result to `docs/doc_voice.md`. If the status is ON HOLD, say so explicitly.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Recibe de `discovery-operator` (registro/nombre ya decidido) y de cualquier muestra de voz real ya existente fuera del harness. Un `build-prototype`/`finalize-product-design` posterior lee `docs/doc_voice.md` en vez de escribir copy nuevo cada vez. `finalize-product-design` no puede marcar una pantalla FINAL si su copy no viene de aquí.
+Receives from `discovery-operator` (register/name already decided) and from any real voice sample already existing outside the harness. A later `build-prototype`/`finalize-product-design` reads `docs/doc_voice.md` instead of writing new copy every time. `finalize-product-design` can't mark a screen FINAL if its copy doesn't come from here.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si las reglas de voz son adjetivos sueltos sin ejemplo Do/Don't.
-- No está completo si algún patrón de voz no se puede trazar a una muestra real de escritura del sujeto.
-- No está completo si el tono se trató como uno solo para todo el producto, sin variar por contexto.
-- No está completo si el copy de una pieza bloqueada afirma algo que no está en `doc_company_context.md` o el content-bank.
-- No está completo si queda como varias versiones abiertas sin una decisión final por pieza.
-- No está completo si el resultado no se guardó en `docs/doc_voice.md`.
+- Not complete if the voice rules are loose adjectives with no Do/Don't example.
+- Not complete if any voice pattern can't be traced to a real writing sample from the subject.
+- Not complete if tone was treated as a single one for the whole product, with no variation by context.
+- Not complete if the copy for a blocked piece claims something that isn't in `doc_company_context.md` or the content-bank.
+- Not complete if it's left as several open versions with no final decision per piece.
+- Not complete if the result wasn't saved to `docs/doc_voice.md`.

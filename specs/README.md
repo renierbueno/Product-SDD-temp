@@ -1,5 +1,5 @@
 # specs/
 
-Vacío a propósito. Cada spec real (`skills/write-spec`) se genera acá, uno por feature —
-no se pre-llena ni se inventa un ejemplo, porque un spec fuera de su contexto real no
-enseña el proceso, solo el formato.
+Empty on purpose. Every real spec (`skills/write-spec`) gets generated here, one per
+feature — not pre-filled and not invented as an example, because a spec outside its real
+context doesn't teach the process, only the format.

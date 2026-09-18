@@ -1,87 +1,87 @@
 ---
 name: human-validation
-description: Usar una vez que validate-fast eligió el método (prueba de humo, concierge, entrevista). Esta skill es el CÓMO ejecutarlo bien: guion, tamaño de muestra, y cómo evitar que la cortesía de la gente se disfrace de validación. Especialmente importante en modelos de dos o tres caras (dueño del punto, tercero que paga, usuario final).
+description: Use once validate-fast has chosen the method (smoke test, concierge, interview). This skill is the HOW of executing it well: script, sample size, and how to keep people's politeness from disguising itself as validation. Especially important in two- or three-sided models (touchpoint owner, paying third party, end user).
 ---
 
-# Ejecutar la validación con humanos
+# Execute validation with humans
 
-Objetivo: que la validación mida comportamiento real, no opiniones educadas. El error más común no es elegir mal el método, es ejecutarlo de forma que todo el mundo te diga que sí.
+Goal: make the validation measure real behavior, not polite opinions. The most common mistake isn't picking the wrong method, it's executing it in a way that makes everyone tell you yes.
 
-## Cuándo usarla
+## When to use it
 
-- `validate-fast` ya eligió el método (prueba de humo, concierge, entrevista) y toca ejecutarlo bien.
-- El modelo tiene dos o tres caras (dueño del punto, tercero que paga, usuario final) y hay que validar cada una por separado.
-- Hay riesgo de que la cortesía de la gente se disfrace de validación.
+- `validate-fast` already chose the method (smoke test, concierge, interview) and it's time to execute it well.
+- The model has two or three sides (touchpoint owner, paying third party, end user) and each needs validating separately.
+- There's a risk that people's politeness will disguise itself as validation.
 
-## Regla de oro: pide compromiso, no opinión
+## Golden rule: ask for commitment, not opinion
 
-"¿Te gustaría esto?" casi siempre da un sí falso, la gente es amable. Pregunta lo que le cuesta algo:
+"Would you like this?" almost always gets a false yes, people are nice. Ask something that costs them a little:
 
-| En vez de preguntar | Pregunta / observa esto |
+| Instead of asking | Ask / observe this |
 |---|---|
-| "¿Pagarías por esto?" | "Aquí tienes el link de pago, complétalo si te interesa" |
-| "¿Te molestaría un anuncio aquí?" | Muéstraselo de verdad y mide si abandona |
-| "¿Usarías el pre-pedido?" | Ofrécelo una vez y mide si lo completa, no si dice que sí |
-| "¿Aceptarías este trato?" | Pon la cifra concreta sobre la mesa (rebaja de X€ o comisión de Y%) y mide si firma o pide pensarlo |
+| "Would you pay for this?" | "Here's the payment link, complete it if you're interested" |
+| "Would an ad here bother you?" | Show it to them for real and measure whether they leave |
+| "Would you use the pre-order?" | Offer it once and measure whether they complete it, not whether they say yes |
+| "Would you accept this deal?" | Put the concrete figure on the table (a discount of X€ or a commission of Y%) and measure whether they sign or ask to think it over |
 
-La señal real está en la fricción que la persona está dispuesta a cruzar, no en la palabra que dice.
+The real signal is in the friction the person is willing to cross, not the word they say.
 
-## Cuántas personas necesitas (y por qué no hace falta más)
+## How many people you need (and why you don't need more)
 
-Para una señal direccional temprana, no para un lanzamiento:
+For an early directional signal, not for a launch:
 
-- **Usabilidad / fricción de un flujo**: 5 personas detectan la mayoría de los problemas obvios. Después de la quinta, empiezas a ver los mismos problemas repetidos.
-- **Deseo o intención de compra**: 10 a 15 conversaciones dan una lectura direccional razonable. Menos de eso, cualquier patrón puede ser ruido.
-- **Aceptación del socio operativo (B2B, decisión cara)**: 3 a 5 conversaciones reales bastan si son con el perfil correcto, porque cada conversación B2B pesa mucho más que una encuesta de consumidor.
+- **Usability / friction of a flow**: 5 people catch most of the obvious problems. After the fifth, you start seeing the same problems repeat.
+- **Desire or purchase intent**: 10 to 15 conversations give a reasonably directional read. Fewer than that, any pattern could be noise.
+- **Operating-partner acceptance (B2B, expensive decision)**: 3 to 5 real conversations are enough if they're with the right profile, because each B2B conversation weighs far more than one consumer survey response.
 
-Con muestras así de pequeñas, el resultado se reporta siempre como indicador direccional, nunca como conclusión.
+With samples this small, the result always gets reported as a directional indicator, never as a conclusion.
 
-## El guion, para cada cara del modelo
+## The script, for each side of the model
 
-**Con el usuario final**
-1. Deja que use el flujo sin ayudarlo. No expliques qué esperas que haga.
-2. Cuando se atasque, no lo rescates de inmediato, anota dónde y por cuánto tiempo.
-3. Al final, pregunta "cuéntame qué pasó por tu cabeza en el momento X" (retrospectiva de un momento concreto), no "¿qué te pareció?" (opinión general).
-4. Nunca preguntes si algo "es buena idea". Pregunta si lo haría de nuevo, o si lo recomendaría a alguien concreto.
+**With the end user**
+1. Let them use the flow without helping. Don't explain what you expect them to do.
+2. When they get stuck, don't rescue them right away, note where and for how long.
+3. At the end, ask "tell me what went through your head at moment X" (retrospective on a specific moment), not "what did you think?" (general opinion).
+4. Never ask if something "is a good idea." Ask if they'd do it again, or if they'd recommend it to someone specific.
 
-**Con el dueño del punto / socio operativo**
-1. No le vendas la idea en la misma conversación en la que la validas, contamina la señal.
-2. Pon la cifra real sobre la mesa (rebaja de cuota de X€, o comisión de Y%), no "estaríamos pensando en algo así".
-3. Mide la reacción a la cifra, no a la idea en abstracto. Si duda con la cifra puesta, esa duda es el dato.
-4. Cierra pidiendo un siguiente paso concreto (piloto real, firma de intención), no "¿qué opinas?".
+**With the touchpoint owner / operating partner**
+1. Don't sell them the idea in the same conversation where you validate it, it contaminates the signal.
+2. Put the real figure on the table (a fee discount of X€, or a commission of Y%), not "we'd be thinking about something like this."
+3. Measure the reaction to the figure, not to the idea in the abstract. If they hesitate once the figure is on the table, that hesitation is the data.
+4. Close by asking for a concrete next step (a real pilot, a letter of intent), not "what do you think?"
 
-**Con el tercero que pagaría**
-1. Habla con alguien que ya compra algo comparable hoy, no con cualquier contacto genérico.
-2. Pregunta qué pagan hoy por algo equivalente, para tener un ancla de precio real.
-3. La señal fuerte es que pidan una propuesta formal o un piloto pagado, no que digan "interesante".
+**With the third party who'd pay**
+1. Talk to someone who already buys something comparable today, not just any generic contact.
+2. Ask what they pay today for something equivalent, to get a real price anchor.
+3. The strong signal is them asking for a formal proposal or a paid pilot, not saying "interesting."
 
-## Señales falsas que hay que descartar
+## False signals to rule out
 
-- Todo el mundo dice que sí en la entrevista, pero nadie completó el compromiso pedido: la idea gusta en abstracto, no en la práctica. Señal débil.
-- Solo validaste con gente que ya te cae bien o que conoces: sesgo de simpatía. Repite con desconocidos antes de confiar en el resultado.
-- Preguntaste por el futuro ("¿lo usarías?") en vez de por el pasado o el presente ("¿lo usaste ahora?", "cuéntame la última vez que te pasó algo parecido"): la gente predice mal su propio comportamiento futuro.
+- Everyone says yes in the interview, but nobody completed the requested commitment: the idea is liked in the abstract, not in practice. Weak signal.
+- You only validated with people who already like you or know you: friendliness bias. Repeat with strangers before trusting the result.
+- You asked about the future ("would you use it?") instead of the past or present ("did you use it just now?", "tell me about the last time something like this happened to you"): people are bad at predicting their own future behavior.
 
-## Cómo comunicarlo
+## How to communicate it
 
-La forma corta de explicar cómo se ejecuta esto, sin quedarse solo en listar métodos: "no le pregunto si le gusta, le pido que haga algo que le cueste un poco, y si lo hace, esa es la señal. Con datos tan chicos como los que tendría en una primera ronda, lo trato como indicador, no como conclusión."
+The short way to explain how this gets executed, without just listing methods: "I don't ask if they like it, I ask them to do something that costs them a little, and if they do it, that's the signal. With data this small from a first round, I treat it as an indicator, not a conclusion."
 
-## Salida esperada
+## Expected output
 
 ```
-Método ejecutado: [de validate-fast]
-Con quién y cuántos: [perfil + número]
-Compromiso pedido (no opinión): [qué le costó algo a la persona]
-Lo que se observó: [comportamiento real, no lo que dijeron sentir]
-Señal: [FUERTE / MIXTA / DÉBIL] — nunca "confirmado" con muestra chica
-Lo que lo mataría si se repitiera: [el patrón negativo que invalidaría la idea]
+Method executed: [from validate-fast]
+With whom and how many: [profile + number]
+Commitment asked for (not opinion): [what cost the person something]
+What was observed: [real behavior, not what they said they felt]
+Signal: [STRONG / MIXED / WEAK] — never "confirmed" with a small sample
+What would kill it if it repeated: [the negative pattern that would invalidate the idea]
 ```
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Recibe de `validate-fast` una vez elegido el método. El resultado (señal FUERTE / MIXTA / DÉBIL) alimenta la decisión ya planteada en `business-case` o `design-monetization-model`.
+Receives from `validate-fast` once the method is chosen. The result (STRONG / MIXED / WEAK signal) feeds the decision already framed in `business-case` or `design-monetization-model`.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si alguna pregunta del guion pide opinión en vez de compromiso.
-- No está completo si la muestra no llega al mínimo de esa categoría (5 para usabilidad, 10-15 para intención de compra, 3-5 para aceptación B2B).
-- No está completo si la señal se reporta como "confirmado" con una muestra chica.
+- Not complete if any question in the script asks for opinion instead of commitment.
+- Not complete if the sample doesn't reach that category's minimum (5 for usability, 10-15 for purchase intent, 3-5 for B2B acceptance).
+- Not complete if the signal is reported as "confirmed" with a small sample.

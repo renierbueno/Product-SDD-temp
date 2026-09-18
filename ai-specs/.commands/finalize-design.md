@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill finalize-product-design para producir el diseño completo y definitivo de cada pantalla/estado
-argument-hint: [alcance del inventario a finalizar, si ya hay una idea]
+description: Invokes the finalize-product-design skill to produce the complete, final design of every screen/state
+argument-hint: [scope of the inventory to finalize, if there's already an idea]
 ---
 
 # /finalize-design
 
-Invoca la skill `finalize-product-design` (usa la tool Skill con skill: "finalize-product-design") con este contexto:
+Invoke the `finalize-product-design` skill (use the Skill tool with skill: "finalize-product-design") with this context:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/finalize-product-design/SKILL.md`: enumera el inventario completo de pantallas/estados sin dejar nada implícito, aplica `docs/doc_design_system.md` exhaustivamente sin decisiones de identidad nuevas, cubre feliz/error/borde por cada pantalla FINAL, y marca cualquier cosa diferida con su razón.
+Follow the full process in `ai-specs/skills/finalize-product-design/SKILL.md`: list the complete inventory of screens/states without leaving anything implicit, apply `docs/doc_design_system.md` exhaustively with no new identity decisions, cover happy/error/edge for every FINAL screen, and mark anything deferred with its reason.

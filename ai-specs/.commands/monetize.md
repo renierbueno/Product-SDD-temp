@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill design-monetization-model sobre un touchpoint compartido
-argument-hint: [touchpoint a monetizar]
+description: Invokes the design-monetization-model skill on a shared touchpoint
+argument-hint: [touchpoint to monetize]
 ---
 
 # /monetize
 
-Invoca la skill `design-monetization-model` (usa la tool Skill con skill: "design-monetization-model") con este touchpoint:
+Invoke the `design-monetization-model` skill (use the Skill tool with skill: "design-monetization-model") with this touchpoint:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/design-monetization-model/SKILL.md`: resuelve las tres caras (dueño del punto, tercero que paga, usuario final), coloca los modelos candidatos en el eje fricción-vs-momento, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/design-monetization-model/SKILL.md`: resolve the three sides (touchpoint owner, paying third party, end user), place the candidate models on the friction-vs-moment axis, and deliver that skill's expected output.

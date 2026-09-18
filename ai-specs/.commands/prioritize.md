@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill prioritize-roadmap sobre varias opciones
-argument-hint: [opciones a priorizar]
+description: Invokes the prioritize-roadmap skill on several options
+argument-hint: [options to prioritize]
 ---
 
 # /prioritize
 
-Invoca la skill `prioritize-roadmap` (usa la tool Skill con skill: "prioritize-roadmap") sobre estas opciones:
+Invoke the `prioritize-roadmap` skill (use the Skill tool with skill: "prioritize-roadmap") on these options:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/prioritize-roadmap/SKILL.md`: fija el criterio antes de puntuar, aplica RICE (o la variante de reutilización de plataforma si el criterio es riesgo de mantenimiento), y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/prioritize-roadmap/SKILL.md`: fix the criterion before scoring, apply RICE (or the platform-reuse variant if the criterion is maintenance risk), and deliver that skill's expected output.

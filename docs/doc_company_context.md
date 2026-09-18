@@ -1,42 +1,41 @@
-# Contexto de la empresa (para alimentar al copiloto)
+# Company context (feeds the copilot)
 
 STABLE context the AI copilot preloads before working on any spec. Fill this in once per
 project, before running `/discovery` for the first time.
 
-El contexto se divide por naturaleza del dato en tres documentos: este (estable, se
-precarga), `docs/doc_market_research.md` (vivo, con fecha, cambia rápido, lo refresca la
-skill `live-research`) y `docs/doc_open_questions.md` (lo que no sabemos, se pregunta al
-equipo, nunca se inventa).
+Context is split by data nature into three documents: this one (stable, preloaded),
+`docs/doc_market_research.md` (live, dated, changes fast, refreshed by the `live-research`
+skill), and `docs/doc_open_questions.md` (what we don't know, asked of the team, never
+invented).
 
-## Qué es la empresa
+## What the company is
 
-[COMPLETAR: quién es, a qué se dedica, en una o dos frases. Si esto no es una empresa
-tradicional (un proyecto personal, un side project, un portfolio), decilo explícitamente
-igual que acá.]
+[FILL IN: who they are, what they do, in one or two sentences. If this isn't a
+traditional company (a personal project, a side project, a portfolio), say so explicitly,
+same as here.]
 
-## Producto(s) core
+## Core product(s)
 
-[COMPLETAR: qué construye o vende, para quién. Si hay varios productos/líneas, listalos
-con una frase cada uno.]
+[FILL IN: what it builds or sells, for whom. If there are several products/lines, list
+them with one sentence each.]
 
-## Modelo de negocio
+## Business model
 
-[COMPLETAR: cómo gana dinero hoy — o, si no aplica (proyecto sin monetización), decilo y
-reformulá cuál es el "output" real que sí importa.]
+[FILL IN: how it makes money today — or, if it doesn't apply (a project with no
+monetization), say so and reframe what the real "output" that matters is.]
 
-## Cómo funciona el negocio (inferido vs. confirmado)
+## How the business works (inferred vs. confirmed)
 
-[COMPLETAR: hechos reales del negocio, cada uno tageado `[CONFIRMADO]` o
-`[SUPUESTO — verificar]`. No mezcles los dos sin marcar cuál es cuál — esa es la regla
-dura de este harness, ver `docs/doc_base_standards.md`.]
+[FILL IN: real facts about the business, each one tagged `[CONFIRMED]` or
+`[ASSUMPTION — verify]`. Don't mix the two without marking which is which — that's this
+harness's hard rule, see `docs/doc_base_standards.md`.]
 
-## Verticales / segmentos actuales
+## Current verticals / segments
 
-[COMPLETAR: a quién le vende o sirve hoy, con la mayor precisión posible — geografía,
-tamaño de cliente, tipo de usuario.]
+[FILL IN: who it sells to or serves today, as precisely as possible — geography, client
+size, user type.]
 
-## Objetivos de negocio
+## Business goals
 
-[COMPLETAR: qué se está tratando de lograr, en orden de prioridad real (primario/
-secundario/terciario), y cualquier restricción dura que las decisiones de producto no
-puedan violar.]
+[FILL IN: what it's trying to achieve, in real priority order (primary/secondary/
+tertiary), and any hard constraint product decisions can't violate.]

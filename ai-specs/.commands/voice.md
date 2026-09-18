@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill lock-content-voice para fijar voz, tono, y el copy real bloqueado
-argument-hint: [qué pieza de copy está bloqueada, si ya hay una idea]
+description: Invokes the lock-content-voice skill to lock voice, tone, and the real locked copy
+argument-hint: [which piece of copy is blocked, if there's already an idea]
 ---
 
 # /voice
 
-Invoca la skill `lock-content-voice` (usa la tool Skill con skill: "lock-content-voice") con este contexto:
+Invoke the `lock-content-voice` skill (use the Skill tool with skill: "lock-content-voice") with this context:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/lock-content-voice/SKILL.md`: extrae la voz de muestras reales (nunca inventada), convierte cada patrón en una regla Do/Don't con ejemplo, mapea el tono por contexto, escribe el copy real cerrado (no versiones abiertas), y guarda el resultado en `docs/doc_voice.md`.
+Follow the full process in `ai-specs/skills/lock-content-voice/SKILL.md`: extract the voice from real samples (never invented), turn each pattern into a Do/Don't rule with an example, map tone by context, write the real, closed copy (not open versions), and save the result to `docs/doc_voice.md`.

@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill business-case sobre una decisión de producto
-argument-hint: [decisión de producto a defender]
+description: Invokes the business-case skill on a product decision
+argument-hint: [product decision to defend]
 ---
 
 # /business-case
 
-Invoca la skill `business-case` (usa la tool Skill con skill: "business-case") sobre esta decisión:
+Invoke the `business-case` skill (use the Skill tool with skill: "business-case") on this decision:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/business-case/SKILL.md`: las cinco piezas del caso, anticipa las preguntas de Comercial, resuelve build-vs-integrate si aplica, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/business-case/SKILL.md`: the five pieces of the case, anticipate Commercial's questions, resolve build-vs-integrate if applicable, and deliver that skill's expected output.

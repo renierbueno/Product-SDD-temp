@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill build-prototype sobre una feature o pantalla
-argument-hint: [feature o pantalla a prototipar]
+description: Invokes the build-prototype skill on a feature or screen
+argument-hint: [feature or screen to prototype]
 ---
 
 # /prototype
 
-Invoca la skill `build-prototype` (usa la tool Skill con skill: "build-prototype") para esto:
+Invoke the `build-prototype` skill (use the Skill tool with skill: "build-prototype") for this:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/build-prototype/SKILL.md`: lee los docs de contexto que aplican antes de inventar nada, nombra el momento pico y el cierre del flujo, un solo archivo HTML/React sin backend ni localStorage, camino feliz + estado de error + estado de borde, revisado contra el checklist de Nielsen y el piso de accesibilidad, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/build-prototype/SKILL.md`: read the context docs that apply before inventing anything, name the flow's peak moment and its close, a single HTML/React file with no backend or localStorage, happy path + error state + edge state, checked against the Nielsen checklist and the accessibility floor, and deliver that skill's expected output.

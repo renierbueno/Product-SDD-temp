@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill validate-fast sobre una hipótesis de producto
-argument-hint: [hipótesis a validar]
+description: Invokes the validate-fast skill on a product hypothesis
+argument-hint: [hypothesis to validate]
 ---
 
 # /validate
 
-Invoca la skill `validate-fast` (usa la tool Skill con skill: "validate-fast") sobre esta hipótesis:
+Invoke the `validate-fast` skill (use the Skill tool with skill: "validate-fast") on this hypothesis:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/validate-fast/SKILL.md`: formula la hipótesis como algo falsable, elige el método más barato que la responda, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/validate-fast/SKILL.md`: state the hypothesis as something falsifiable, choose the cheapest method that answers it, and deliver that skill's expected output.

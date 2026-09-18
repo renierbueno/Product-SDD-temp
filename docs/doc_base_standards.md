@@ -1,37 +1,37 @@
-# Estándares base
+# Base standards
 
-Principios que gobiernan cualquier trabajo en este repo. El copiloto los respeta siempre.
+Principles that govern any work in this repo. The copilot always respects them.
 
-## Cómo se decide
+## How decisions get made
 
-- **Criterio explícito, siempre.** Ninguna priorización sin decir en base a qué (impacto en ingresos, velocidad de entrega, riesgo de mantenimiento). Se comunica el criterio, no solo el resultado.
-- **Supuestos en voz alta.** Cuando falta información, se asume lo mínimo necesario para avanzar y se marca como [SUPUESTO — validar]. No se pide más info de la necesaria.
-- **Plataforma vs. específico.** Toda feature de una vertical pasa por la pregunta: ¿esto se construye una vez como capacidad configurable, o es genuinamente específico de este vertical? Se justifica la respuesta.
-- **Findings como indicadores.** Con datos pequeños, los hallazgos se presentan como señales direccionales, no como conclusiones definitivas.
+- **Explicit criterion, always.** No prioritization without saying what it's based on (revenue impact, delivery speed, maintenance risk). The criterion gets communicated, not just the result.
+- **Assumptions out loud.** When information is missing, assume the minimum needed to move forward and mark it as [ASSUMPTION — validate]. Don't ask for more info than necessary.
+- **Platform vs. specific.** Every vertical feature goes through the question: does this get built once as a configurable capability, or is it genuinely specific to this vertical? The answer gets justified.
+- **Findings as indicators.** With small data, findings get presented as directional signals, not as definitive conclusions.
 
-## Cómo se especifica
+## How things get specified
 
-- **El spec es el artefacto durable, el prompt es desechable.** Todo lo que se vaya a construir de verdad pasa por un spec.
-- **Criterios de aceptación en formato EARS.** Patrones: `WHEN [evento] THE SYSTEM SHALL [comportamiento]`, `IF [condición] THEN [comportamiento]`, `WHILE [estado] THE SYSTEM SHALL [comportamiento]`. Nada de adjetivos ("rápido", "intuitivo") como criterio; solo comportamiento medible.
-- **Fuera de alcance explícito.** Todo spec declara qué NO se construye en esta versión.
-- **Mínimo viable de spec.** Se escribe lo justo para eliminar ambigüedad de la siguiente fase, no un PRD de treinta páginas antes de validar nada.
+- **The spec is the durable artifact, the prompt is disposable.** Anything that's actually going to get built goes through a spec.
+- **Acceptance criteria in EARS format.** Patterns: `WHEN [event] THE SYSTEM SHALL [behavior]`, `IF [condition] THEN [behavior]`, `WHILE [state] THE SYSTEM SHALL [behavior]`. No adjectives ("fast", "intuitive") as a criterion; only measurable behavior.
+- **Explicit out of scope.** Every spec states what does NOT get built in this version.
+- **Minimum viable spec.** Write just enough to remove ambiguity for the next phase, not a thirty-page PRD before validating anything.
 
-## Cómo se valida
+## How things get validated
 
-- **La prueba más barata primero.** Antes de comprometer ingeniería, se define la validación más rápida que confirma o mata la hipótesis.
-- **El PM valida antes de entregar.** Cuando se puede, se prototipa con IA para no hacer perder tiempo a ingeniería en algo con un problema obvio de UX o alcance.
-- **Un número por hipótesis.** Cada spec dice qué métrica confirmaría que funcionó.
+- **The cheapest test first.** Before committing engineering, define the fastest validation that confirms or kills the hypothesis.
+- **The PM validates before handing off.** Where possible, prototype with AI so engineering doesn't waste time on something with an obvious UX or scope problem.
+- **One number per hypothesis.** Every spec says which metric would confirm it worked.
 
-## Cómo se cambia el harness
+## How the harness itself changes
 
-Aplica a cualquier edición de `CLAUDE.md`, `README.md`, `ai-specs/skills/*/SKILL.md`, `ai-specs/.commands/*.md`, o `docs/`, sin importar qué copiloto o sesión la haga.
+Applies to any edit to `CLAUDE.md`, `README.md`, `ai-specs/skills/*/SKILL.md`, `ai-specs/.commands/*.md`, or `docs/`, regardless of which copilot or session makes it.
 
-- **Verifica integración antes de tocar nada.** Antes de editar una skill, un comando, o un doc, busca (grep) cada lugar donde el concepto que vas a cambiar ya se menciona — la tabla de rutas de `CLAUDE.md`, el diagrama de `README.md`, otros `SKILL.md`. Un cambio que rompe una referencia en otro archivo no está terminado, está a medias.
-- **Toda skill/comando nuevo se declara en tres sitios, no en uno.** El archivo mismo (`ai-specs/skills/<nombre>/SKILL.md` + `ai-specs/.commands/<nombre>.md`), la tabla de rutas de `CLAUDE.md`, y el diagrama de estructura de `README.md`. Falta cualquiera de los tres y la skill existe pero es invisible para la próxima sesión.
-- **Prueba antes y después, no solo después.** Antes de cambiar: comprueba qué es cierto hoy (cuenta cuántas skills/docs hay de verdad, qué referencias cruzadas existen). Después: repite la misma comprobación y verifica que coincide — ningún conteo ("cuatro docs", "once skills") puede quedar desincronizado con la realidad del repo.
-- **Nada se asume, se comprueba.** Si la duda es sobre una práctica externa (¿cuál es el orden estándar de X?), eso es `live-research`, no una suposición razonada — igual que con cualquier otro dato de mercado.
-- **Definición de "hecho" para un cambio al harness:** un copiloto en una sesión nueva, sin memoria de esta, tiene que poder seguir el rastro completo desde `CLAUDE.md` hasta el archivo final sin un solo enlace roto.
+- **Verify integration before touching anything.** Before editing a skill, a command, or a doc, search (grep) every place the concept you're about to change is already mentioned — `CLAUDE.md`'s routing table, `README.md`'s diagram, other `SKILL.md` files. A change that breaks a reference in another file isn't done, it's half-done.
+- **Every new skill/command gets declared in three places, not one.** The file itself (`ai-specs/skills/<name>/SKILL.md` + `ai-specs/.commands/<name>.md`), `CLAUDE.md`'s routing table, and `README.md`'s structure diagram. Miss any of the three and the skill exists but is invisible to the next session.
+- **Test before and after, not just after.** Before changing: check what's true today (count how many skills/docs really exist, what cross-references exist). After: repeat the same check and verify it matches — no count ("four docs", "eleven skills") can drift out of sync with the repo's reality.
+- **Nothing gets assumed, it gets checked.** If the question is about an external practice (what's the standard order for X?), that's `live-research`, not a reasoned guess — same as with any other market data point.
+- **Definition of "done" for a change to the harness:** a copilot in a new session, with no memory of this one, has to be able to follow the complete trail from `CLAUDE.md` to the final file without a single broken link.
 
-## Tono de escritura
+## Writing tone
 
-Simple, directo, humano. Sin buzzwords, sin lenguaje que suene a IA. Sin guiones largos. Cuando hay tres factores, se dice "tres", no "varios".
+Simple, direct, human. No buzzwords, no language that sounds like AI. No em dashes. When there are three factors, say "three," not "several."

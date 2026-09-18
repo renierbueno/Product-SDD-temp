@@ -1,12 +1,12 @@
 ---
-description: Invoca la skill evaluate-vertical sobre un vertical nuevo
-argument-hint: [vertical a evaluar]
+description: Invokes the evaluate-vertical skill on a new vertical
+argument-hint: [vertical to evaluate]
 ---
 
 # /evaluate
 
-Invoca la skill `evaluate-vertical` (usa la tool Skill con skill: "evaluate-vertical") sobre este vertical:
+Invoke the `evaluate-vertical` skill (use the Skill tool with skill: "evaluate-vertical") on this vertical:
 
 $ARGUMENTS
 
-Sigue el proceso completo de `ai-specs/skills/evaluate-vertical/SKILL.md`: perfil del vertical, la matriz plataforma-vs-específico, construir-vs-integrar, y entrega la salida esperada de esa skill.
+Follow the full process in `ai-specs/skills/evaluate-vertical/SKILL.md`: vertical profile, the platform-vs-specific matrix, build-vs-integrate, and deliver that skill's expected output.
