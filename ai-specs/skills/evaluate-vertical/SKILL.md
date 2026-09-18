@@ -1,76 +1,76 @@
 ---
 name: evaluate-vertical
-description: Usar cuando la pregunta es "¿deberíamos entrar en el vertical X?" o "¿qué necesitaría X para correr sobre nuestra plataforma?". Produce una decisión de entrar/no entrar con criterio explícito y un desglose de qué se reutiliza de la plataforma vs. qué es específico del vertical.
+description: Use when the question is "should we enter vertical X?" or "what would X need to run on our platform?". Produces an enter/don't-enter decision with an explicit criterion and a breakdown of what gets reused from the platform vs. what's specific to the vertical.
 ---
 
-# Evaluar una vertical nueva
+# Evaluate a new vertical
 
-Objetivo: decidir si la empresa debería entrar en un vertical, y si sí, qué se construye una vez como capacidad configurable vs. qué es específico. Este es el ejercicio central de esta función.
+Goal: decide whether the company should enter a vertical, and if so, what gets built once as a configurable capability vs. what's specific. This is the central exercise of this function.
 
-## Cuándo usarla
+## When to use it
 
-- Te preguntan "¿deberíamos entrar en el vertical X?".
-- Necesitas saber qué necesitaría un vertical nuevo para correr sobre la plataforma existente.
-- Hay que decidir qué se construye una vez como capacidad configurable vs. qué es específico del vertical.
+- You're asked "should we enter vertical X?".
+- You need to know what a new vertical would require to run on the existing platform.
+- You need to decide what gets built once as a configurable capability vs. what's specific to the vertical.
 
-## Preguntas de arranque (hazlas antes de producir nada)
+## Starting questions (ask these before producing anything)
 
-1. ¿Quién opera este vertical y cuál es su workflow diario?
-2. ¿Qué tipo de punto de servicio hay, y qué integración técnica requiere (API, hardware, protocolo propietario, otro)?
-3. ¿Qué bloquea hoy la entrada, un gap de producto o un tema comercial?
-4. ¿Cuál es el tamaño y la frecuencia de compra del vertical? (define si el modelo de negocio actual aguanta)
+1. Who operates this vertical and what's their daily workflow?
+2. What's the core workflow or system this vertical needs to plug into, and what integration does that require (API, a specific compliance/certification, a data format, an existing tool, other)?
+3. What blocks entry today, a product gap or a commercial issue?
+4. What's the vertical's size and purchase frequency? (defines whether the current business model can sustain it)
 
-## Paso 1 — Perfil del vertical
+## Step 1 — Vertical profile
 
-Rellena:
+Fill in:
 
 ```
-Vertical: [nombre]
-Operador tipo: [quién opera el punto de servicio]
-Consumidor tipo: [quién paga]
-Ticket medio estimado: [€] · Frecuencia: [alta/media/baja]
-Integración técnica requerida: [API / hardware propietario / protocolo específico / desconocido]
-Por qué ahora: [qué lo hace relevante]
+Vertical: [name]
+Typical user: [who directly uses it day to day]
+Typical buyer: [who pays, if different from the user]
+Estimated average ticket: [currency amount] · Frequency: [high/medium/low]
+Required integration: [API / a specific compliance-certification / a data format / an existing tool / unknown]
+Why now: [what makes it relevant]
 ```
 
-## Paso 2 — La matriz plataforma vs. específico (el corazón del análisis)
+## Step 2 — The platform vs. specific matrix (the heart of the analysis)
 
-Para cada necesidad del vertical, clasifícala:
+For each need of the vertical, classify it:
 
-| Necesidad del vertical | ¿Ya existe en la plataforma? | ¿Configurable o build específico? | Justificación |
+| Vertical need | Already exists on the platform? | Configurable or specific build? | Justification |
 |---|---|---|---|
-| Cobro sin efectivo | Sí | Configurable | Ya es core |
-| [ej: sesión por tiempo/uso] | Parcial | Configurable | Ya existe en otro vertical |
-| [ej: control de acceso] | No | Evaluar build | Nuevo formato |
-| [ej: reserva previa] | No | Evaluar build | Nuevo formato |
+| User authentication (SSO) | Yes | Configurable | Already core |
+| [e.g.: time/usage-based session] | Partial | Configurable | Already exists in another vertical |
+| [e.g.: access control] | No | Evaluate build | New format |
+| [e.g.: advance booking] | No | Evaluate build | New format |
 
-Regla: si algo se parece a una capacidad que ya existe para otro vertical, es configurable, no build nuevo. Solo se justifica un build específico cuando la necesidad no tiene análogo en la plataforma.
+Rule: if something resembles a capability that already exists for another vertical, it's configurable, not a new build. A specific build is only justified when the need has no analog on the platform.
 
-## Paso 2b — ¿Construir o integrar?
+## Step 2b — Build or integrate?
 
-Para cada necesidad que salga como build específico, pregunta antes de asumir que se construye: ¿existe ya algo en el mercado que podríamos integrar para entrar rápido? Integra para validar la entrada; construye solo lo diferenciador y core. Si esto se vuelve el eje de la decisión, encadena con `business-case`.
+For each need that comes out as a specific build, ask before assuming it gets built: does something already exist on the market that we could integrate to enter fast? Integrate to validate entry; build only what's differentiating and core. If this becomes the axis of the decision, chain into `business-case`.
 
-## Paso 3 — Decisión
+## Step 3 — Decision
 
 ```
-Recomendación: [ENTRAR / NO ENTRAR / ENTRAR EN FASE 2]
-Criterio de decisión: [ingresos / velocidad / riesgo de mantenimiento]
-Qué se construiría primero: [la capacidad mínima]
-Qué queda fuera de esta fase: [explícito]
-Mayor riesgo: [el que mataría la entrada]
-Pregunta abierta para Comercial / PM de la plataforma: [una]
+Recommendation: [ENTER / DON'T ENTER / ENTER IN PHASE 2]
+Decision criterion: [revenue / speed / maintenance risk]
+What would get built first: [the minimum capability]
+What's out of this phase: [explicit]
+Biggest risk: [the one that would kill entry]
+Open question for Commercial / the platform PM: [one]
 ```
 
-## Salida esperada
+## Expected output
 
-Una tabla plataforma-vs-específico llena + tres frases de recomendación. No más.
+A filled platform-vs-specific table + three sentences of recommendation. No more.
 
-## Cómo se conecta con el resto
+## How it connects with the rest
 
-Si el build-vs-integrate del paso 2b se vuelve el eje de la decisión, sigue con `business-case`. Para especificar la capacidad que se construiría primero, sigue con `write-spec`.
+If step 2b's build-vs-integrate becomes the axis of the decision, follow with `business-case`. To specify the capability that would get built first, follow with `write-spec`.
 
-## No está completo si...
+## Not complete if...
 
-- No está completo si alguna fila de la matriz plataforma-vs-específico no tiene justificación.
-- No está completo si la recomendación no es ENTRAR / NO ENTRAR / ENTRAR EN FASE 2 con un criterio explícito.
-- No está completo si un build específico no pasó por la pregunta de construir vs. integrar (paso 2b).
+- Not complete if any row of the platform-vs-specific matrix has no justification.
+- Not complete if the recommendation isn't ENTER / DON'T ENTER / ENTER IN PHASE 2 with an explicit criterion.
+- Not complete if a specific build didn't go through the build-vs-integrate question (step 2b).

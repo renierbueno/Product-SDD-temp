@@ -1,95 +1,95 @@
 ---
 name: design-monetization-model
-description: Usar cuando la pregunta es cómo monetizar un punto de contacto compartido (una pantalla, un espacio, una interacción) sin romper la experiencia de quien lo usa. Produce un modelo de monetización elegido entre varios posibles, con el trade-off razonado, no una regla ciega.
+description: Use when the question is how to monetize a shared touchpoint (a screen, a space, an interaction) without breaking the experience of whoever uses it. Produces a monetization model chosen from several candidates, with the trade-off reasoned out, not a blind rule.
 ---
 
-# Diseñar el modelo de monetización de un touchpoint
+# Design the monetization model for a touchpoint
 
-Objetivo: dado un punto de contacto compartido entre varias partes, elegir la forma de monetizarlo que mejor equilibra tres cosas en tensión. No hay una respuesta correcta fija; el trabajo es razonar el trade-off para ESTE punto y este contexto. Eso es exactamente lo que hace difícil el problema: escoger el mejor modelo para el negocio sin añadir fricción.
+Goal: given a touchpoint shared between several parties, choose the monetization approach that best balances three things in tension. There's no fixed correct answer; the work is reasoning through the trade-off for THIS touchpoint and this context. That's exactly what makes the problem hard: picking the best model for the business without adding friction.
 
-## Cuándo usarla
+## When to use it
 
-- Te preguntan cómo monetizar un punto de contacto concreto (una pantalla, un espacio, un momento de la experiencia de alguien).
-- Ya se decidió entrar en un vertical o touchpoint y toca elegir el modelo de ingreso.
-- Alguien propone "pongamos ads" y hace falta comparar esa opción con las demás antes de aceptarla.
+- You're asked how to monetize a specific touchpoint (a screen, a space, a moment in someone's experience).
+- Entry into a vertical or touchpoint has already been decided and it's time to pick the revenue model.
+- Someone proposes "let's put ads here" and it needs comparing against the other options before accepting it.
 
-## El problema es de tres caras, siempre
+## The problem has three sides, always
 
-Todo modelo de monetización de un touchpoint compartido tiene que resolver a la vez:
+Every monetization model for a shared touchpoint has to resolve all of these at once:
 
-1. **El dueño del punto**: ¿por qué diría que sí? Rebaja de cuota, comisión por venta, un servicio nuevo que le da valor, datos de sus usuarios. Sin su sí, nada corre.
-2. **El tercero que paga**: ¿qué compra y por qué vale su dinero? Alcance, contexto, intención en el momento.
-3. **El usuario final**: su experiencia. Un proceso casi automático se rompe fácil. Aquí vive la fricción.
+1. **The touchpoint owner**: why would they say yes? Fee discount, commission on a sale, a new service that gives them value, data about their users. Without their yes, nothing runs.
+2. **The paying third party**: what are they buying and why is it worth their money? Reach, context, intent in the moment.
+3. **The end user**: their experience. An almost-automatic process breaks easily. This is where the friction lives.
 
-## Paso 1 — Mapea los modelos posibles (no te cases con ads)
+## Step 1 — Map the possible models (don't marry ads)
 
-Advertising es uno, no el único. Para el touchpoint dado, lista cuáles aplican:
+Advertising is one option, not the only one. For the given touchpoint, list which ones apply:
 
-| Modelo | Qué es | Quién paga | Momento |
+| Model | What it is | Who pays | Moment |
 |---|---|---|---|
-| Display / ad | Anuncio en el punto de contacto | Tercero | Antes / durante / después de la interacción |
-| Comisión por venta | La empresa se lleva % de una venta cruzada | Tercero | En la venta |
-| Rebaja de cuota al dueño del punto | Cede espacio a cambio de pagar menos | (Se compensa con ingreso del tercero) | Contrato |
-| Reserva / pre-pedido | Comprar algo para recoger o usar después | Usuario final | Durante tiempo muerto |
-| Ticketing / acceso | El punto es entrada a un evento/servicio | Usuario final / organizador | Al acceder |
-| Sesión pagada | Consulta/servicio desde el punto | Usuario final | En el punto |
+| Ad / sponsored placement | An ad or sponsored result at the touchpoint | Third party | Before / during / after the interaction |
+| Marketplace / referral commission | Company takes a % of a transaction it helped facilitate | Third party | At the transaction |
+| Revenue share to the touchpoint owner | The owner gives up a cut or a fee reduction in exchange for hosting the monetized surface | (Offset by third-party revenue) | Contract |
+| Freemium upsell / pre-commit | Paying to unlock or reserve something used later | End user | During a natural pause in the flow |
+| Paywall / gated access | The touchpoint is the gate to content, a feature, or an event | End user / organizer | On access |
+| Pay-per-use / metered feature | A paid action or session at the touchpoint | End user | At the touchpoint |
 
-## Paso 2 — El eje que lo decide todo: fricción vs. momento
+## Step 2 — The axis that decides everything: friction vs. moment
 
-Coloca cada modelo candidato según CUÁNDO toca al usuario final:
+Place each candidate model by WHEN it touches the end user:
 
-- **Antes de la interacción**: máxima fricción. Interrumpe a alguien que vino a hacer otra cosa. Casi siempre malo salvo que el contexto sea de espera larga.
-- **Durante la interacción**: rompe un proceso casi automático. Peligroso.
-- **Después de la interacción**: el reto es retener a alguien que ya se va. Necesita un gancho fuerte (cashback, pre-pedido útil) y segundos, no minutos.
-- **En tiempo muerto**: la ventana de oro — cualquier momento de espera real dentro del contexto. Aquí caben reserva, pre-pedido, servicios.
+- **Before the interaction**: maximum friction. Interrupts someone who came to do something else. Almost always bad unless the context has real long waiting time.
+- **During the interaction**: breaks an almost-automatic process. Dangerous.
+- **After the interaction**: the challenge is retaining someone who's already leaving. Needs a strong hook (a discount code, a saved draft, a useful follow-up) and seconds, not minutes.
+- **During an idle moment**: the golden window — any real waiting or empty moment in the flow (a loading screen, an empty state, between two steps). This is where upsells, pre-commits, and add-on offers fit.
 
-## Paso 3 — El contexto manda
+## Step 3 — Context rules
 
-El mismo modelo gana o pierde según dónde y cuándo ocurre el punto de contacto. Razónalo explícito:
-
-```
-Contexto: [describe el entorno real: con prisa, con espera, cautivo, de paso...]
-Estado del usuario: [prisa / espera / cautivo / de paso]
-Qué permite este contexto: [qué modelos tienen sentido aquí]
-Qué NO permite: [qué rompería la experiencia aquí]
-```
-
-Ejemplo de razonamiento (genérico, adapta al contexto real): si el usuario tiene prisa, un ad antes de la interacción es fricción pura; pero un pre-pedido que resuelve algo útil más tarde usa la prisa a favor. Si el usuario está cautivo y con tiempo muerto real, ofrecer algo para usar al salir es alto valor y cero fricción en el momento central de la interacción.
-
-## Paso 4 — Elige y razona el trade-off (sin jerarquía fija)
-
-No hay un eje que siempre gana. Sopesa los tres y declara tu decisión:
+The same model wins or loses depending on where and when the touchpoint happens. Reason it out explicitly:
 
 ```
-Modelo elegido: [uno]
-Qué gana el dueño del punto: [su incentivo para aceptar]
-Qué gana el tercero que paga: [por qué paga]
-Fricción para el usuario final: [dónde toca y por qué es aceptable AQUÍ]
-Por qué este y no los otros dos candidatos: [el trade-off explícito]
-Qué lo mataría: [la condición que lo hace inviable]
+Context: [describe the real environment: rushed, waiting, mid-task, just browsing...]
+User state: [rushed / waiting / mid-task, focused / just browsing]
+What this context allows: [which models make sense here]
+What it does NOT allow: [what would break the experience here]
 ```
 
-El criterio en una frase: no se elige el modelo que más ingresa, ni el que menos molesta, en abstracto; se elige el que mejor equilibra los tres para este punto y este contexto, dejando explícito qué se sacrifica.
+Example reasoning (generic, adapt to the real context): if the user is mid-task and rushed, an ad before they can proceed is pure friction; but a pre-commit offer they can redeem later uses the urgency in your favor. If the user hits a genuine idle moment (a loading state, an empty results page), offering something useful there is high value and zero friction to the task itself.
 
-## Nota plataforma vs. específico
+## Step 4 — Choose and reason the trade-off (no fixed hierarchy)
 
-El contexto se modela como una variable configurable (tipo de punto, estado del usuario, ventana de tiempo), no como un build por sitio. Un buen modelo de monetización es una capacidad que se parametriza por contexto. Eso lo mantiene fiel al principio de no crear un mosaico inmantenible.
+No single axis always wins. Weigh all three and state your decision:
 
-## Validación de dos caras
+```
+Model chosen: [one]
+What the touchpoint owner gains: [their incentive to accept]
+What the paying third party gains: [why they pay]
+Friction for the end user: [where it touches them and why it's acceptable HERE]
+Why this one and not the other two candidates: [the explicit trade-off]
+What would kill it: [the condition that makes it unviable]
+```
 
-Un modelo de touchpoint no se valida con una sola métrica. Necesitas señal de los dos lados: ¿el dueño del punto acepta el trato? ¿el tercero paga? ¿el usuario final no abandona? La prueba más barata suele ser probar primero el lado más frágil (normalmente la aceptación del dueño del punto o la fricción del usuario final), no el que es más fácil de medir.
+The criterion in one sentence: you don't pick the model that earns the most, or the one that bothers the least, in the abstract; you pick the one that best balances all three for this touchpoint and this context, making explicit what gets sacrificed.
 
-## Salida esperada
+## Platform vs. specific note
 
-El mapa de modelos posibles (paso 1) + la decisión razonada (paso 4): modelo elegido, qué gana cada una de las tres caras, y qué lo mataría.
+The context gets modeled as a configurable variable (touchpoint type, user state, time window), not as a per-site build. A good monetization model is a capability that gets parameterized by context. That keeps it faithful to the principle of not creating an unmaintainable mosaic.
 
-## Cómo se conecta con el resto
+## Two-sided validation
 
-Sigue con `write-spec` para la capacidad elegida, y con `validate-fast` para diseñar la prueba de dos caras de arriba.
+A touchpoint model doesn't get validated with a single metric. You need signal from both sides: does the touchpoint owner accept the deal? Does the third party pay? Does the end user not abandon? The cheapest test is usually testing the more fragile side first (usually the touchpoint owner's acceptance or the end user's friction), not whichever is easiest to measure.
 
-## No está completo si...
+## Expected output
 
-- No está completo si no se nombraron los tres lados (dueño del punto, tercero que paga, usuario final) y qué gana cada uno.
-- No está completo si no se dijo en qué momento (antes / durante / después de la interacción / tiempo muerto) toca al usuario el modelo elegido.
-- No está completo si "advertising" fue el único modelo que se consideró.
-- No está completo si no se dijo qué lo mataría.
+The map of possible models (step 1) + the reasoned decision (step 4): model chosen, what each of the three sides gains, and what would kill it.
+
+## How it connects with the rest
+
+Follow with `write-spec` for the chosen capability, and with `validate-fast` to design the two-sided test above.
+
+## Not complete if...
+
+- Not complete if the three sides (touchpoint owner, paying third party, end user) weren't named and what each one gains.
+- Not complete if it doesn't say at what moment (before / during / after the interaction / an idle moment) the chosen model touches the user.
+- Not complete if "advertising" was the only model considered.
+- Not complete if it doesn't say what would kill it.

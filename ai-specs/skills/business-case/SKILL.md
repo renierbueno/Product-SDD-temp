@@ -1,77 +1,77 @@
 ---
 name: business-case
-description: Usar para argumentar una decisión de producto en términos de negocio y defenderla ante Comercial o el Product Director. No asume ningún modelo de ingreso fijo. Produce el caso a favor de una decisión, con el trade-off y el mayor riesgo explícitos.
+description: Use to make the case for a product decision in business terms and defend it to Commercial or the Product Director. Doesn't assume any fixed revenue model. Produces the case for a decision, with the trade-off and the biggest risk made explicit.
 ---
 
-# Argumentar el business case
+# Make the business case
 
-Objetivo: convertir una decisión de producto en un argumento de negocio que alguien de Comercial o Dirección pueda entender y rebatir, y detectar qué gaps bloquean la entrada a un vertical o modelo nuevo, no solo defender la decisión ya tomada.
+Goal: turn a product decision into a business argument someone from Commercial or Leadership can understand and push back on, and detect which gaps block entry into a new vertical or model, not just defend a decision already made.
 
-Importante: si la empresa está abriendo modelos de negocio nuevos, NO asumas que todo tiene que caber en el modelo actual (`docs/doc_company_context.md`). El punto es justo lo contrario: encontrar el mejor modelo para cada caso. El modelo actual es la base, no una restricción sobre lo nuevo.
+Important: if the company is opening up new business models, do NOT assume everything has to fit the current model (`docs/doc_company_context.md`). The point is the opposite: finding the best model for each case. The current model is the base, not a restriction on what's new.
 
-## Cuándo usarla
+## When to use it
 
-- Ya hay una decisión de producto tomada y hay que defenderla ante Comercial o Dirección.
-- Hace falta decidir build vs. integrate y justificarlo en términos de negocio.
-- Alguien pregunta "¿cuánto podría mover esto en ingresos?" y hace falta una respuesta con supuestos explícitos, no una cifra suelta.
+- A product decision has already been made and needs to be defended to Commercial or Leadership.
+- Build vs. integrate needs deciding and justifying in business terms.
+- Someone asks "how much could this move revenue?" and the answer needs explicit assumptions, not a number pulled from nowhere.
 
-## El caso, en cinco piezas
-
-```
-Decisión: [qué se construye o en qué se entra]
-
-Por qué el negocio lo necesita:
-[el problema u oportunidad en términos de dinero o posición, no de features]
-
-Cómo gana dinero (o cómo se sostiene):
-[el modelo: suscripción, comisión, rebaja compensada, ingreso de marca, mix.
- Di cuál y por qué encaja mejor que las alternativas. Aquí NO hay respuesta por defecto.]
-
-Qué cuesta y qué arriesga:
-[esfuerzo de construir + el riesgo real, incluido el de mantenimiento de plataforma]
-
-Por qué ahora:
-[qué lo hace urgente; qué pasa si esperamos]
-```
-
-## Las preguntas que Comercial te va a hacer (anticípalas)
-
-- ¿Cuánto podría mover esto en ingresos y en qué plazo? (aunque sea un rango con supuestos)
-- ¿Qué clientes/cuentas se desbloquean con esto?
-- ¿El cliente/socio lo va a querer, o se lo tenemos que empujar?
-- ¿Qué pasa con el margen si el modelo lleva coste variable nuevo?
-- ¿Esto nos ata a un proveedor externo? (build vs. integrate)
-
-Ten una respuesta, aunque sea con supuestos marcados, para cada una.
-
-## Build vs. integrate (decisión de negocio, no solo técnica)
-
-Cuando el caso implica una capacidad nueva (motor de campañas, catálogo, settlement, reservas), la pregunta que de verdad decide es: **¿esto toca el activo exclusivo de la empresa (su red, su relación con el cliente, sus datos propios), o es infraestructura genérica que un tercero ya resuelve mejor?**
+## The case, in five pieces
 
 ```
-¿Toca el activo exclusivo de la empresa?: [sí / no]
-¿Qué existe ya que podríamos integrar? [nombra las opciones reales del mercado]
-Coste de integrar: [rápido pero dependencia + margen cedido a un tercero]
-Coste de construir: [lento pero es producto propio y diferenciado]
-Recomendación: [una] porque [criterio: velocidad de entrada / diferenciación / margen / control del dato]
+Decision: [what gets built or entered]
+
+Why the business needs it:
+[the problem or opportunity in terms of money or position, not features]
+
+How it makes money (or how it's sustained):
+[the model: subscription, usage-based pricing, commission/take-rate, advertising, mix.
+ Say which one and why it fits better than the alternatives. There's NO default answer here.]
+
+What it costs and what it risks:
+[build effort + the real risk, including platform-maintenance risk]
+
+Why now:
+[what makes it urgent; what happens if we wait]
 ```
 
-La regla honesta: si toca el activo exclusivo, constrúyelo; si es genérico, integra para entrar rápido y validar, y evalúa build solo si el volumen lo justifica. Di cuál es cuál en este caso.
+## The questions Commercial will ask you (anticipate them)
 
-## Con datos pequeños o supuestos
+- How much could this move revenue, and over what timeframe? (even a range with assumptions)
+- Which clients/accounts does this unlock?
+- Will the client/partner want this, or do we have to push it on them?
+- What happens to margin if the model carries new variable cost?
+- Does this tie us to an external provider? (build vs. integrate)
 
-Presenta los números como escenarios con supuestos visibles, no como proyecciones firmes. "Si asumimos X cuentas y Y de ticket, esto ronda Z" es honesto; una cifra sola parece inventada. Enmarca los hallazgos como indicadores direccionales.
+Have an answer, even with marked assumptions, for each one.
 
-## Salida esperada
+## Build vs. integrate (a business decision, not just a technical one)
 
-Las cinco piezas del caso + la decisión build-vs-integrate si aplica. Corto y defendible. La prueba de un buen caso: alguien de Comercial podría rebatirlo con datos, no con "no me convence".
+When the case involves a new capability (a billing engine, a reporting dashboard, a notifications system, an integrations marketplace), the question that really decides it is: **does this touch the company's exclusive asset (its network, its customer relationship, its own data), or is it generic infrastructure a third party already solves better?**
 
-## Cómo se conecta con el resto
+```
+Does it touch the company's exclusive asset?: [yes / no]
+What already exists that we could integrate? [name the real market options]
+Cost of integrating: [fast but dependency + margin ceded to a third party]
+Cost of building: [slow but it's a proprietary, differentiated product]
+Recommendation: [one] because [criterion: speed to market / differentiation / margin / data control]
+```
 
-Recibe de `evaluate-vertical` (paso 2b) o `design-monetization-model` cuando el build-vs-integrate es el eje de la decisión. Sigue con `prioritize-roadmap` si hay más opciones sobre la mesa, o directo con `write-spec` si ya está decidido.
+The honest rule: if it touches the exclusive asset, build it; if it's generic, integrate to enter fast and validate, and only evaluate building if volume justifies it. State which is which in this case.
 
-## No está completo si...
+## With small data or assumptions
 
-- No está completo si falta alguna de las cinco piezas del caso.
-- No está completo si los números no llevan los supuestos visibles.
-- No está completo si implica una capacidad nueva y no se respondió build vs. integrate.
+Present the numbers as scenarios with visible assumptions, not as firm projections. "If we assume X accounts and a Y ticket size, this lands around Z" is honest; a lone figure looks invented. Frame findings as directional indicators.
+
+## Expected output
+
+The five pieces of the case + the build-vs-integrate decision if applicable. Short and defensible. The test of a good case: someone from Commercial could push back on it with data, not with "I'm not convinced."
+
+## How it connects with the rest
+
+Receives from `evaluate-vertical` (step 2b) or `design-monetization-model` when build-vs-integrate is the axis of the decision. Follow with `prioritize-roadmap` if there are more options on the table, or straight to `write-spec` if it's already decided.
+
+## Not complete if...
+
+- Not complete if any of the five pieces of the case is missing.
+- Not complete if the numbers don't carry visible assumptions.
+- Not complete if it involves a new capability and build vs. integrate wasn't answered.
