@@ -82,6 +82,10 @@ Un PRD de treinta páginas escrito antes de un prototipo es papeleo waterfall, n
 
 Este es el harness que uso para construir mi propio trabajo — incluyendo mi portfolio profesional, que corrió el flujo completo (discovery → priorización → spec → prototipo → validación) antes de escribir una sola línea de código del sitio. No es un ejercicio teórico.
 
+## Créditos
+
+La arquitectura portable (`ai-specs/` como fuente canónica + symlinks a `.claude`/`.cursor`/`.codex`) está adaptada de [LIDR-academy/lidr-specboot](https://github.com/LIDR-academy/lidr-specboot) (MIT), un harness pensado para ingeniería. Las 13 skills y todo el contenido metodológico de acá son una reescritura propia para trabajo de PM, construida con asistencia de IA (Claude Code) — no comparten texto con el original.
+
 ## Licencia
 
 MIT — ver `LICENSE`. Usalo, adaptalo, quedátelo.
